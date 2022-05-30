@@ -2,19 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/tile/BridgeTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/tile/CellTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/tile/EndTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/tile/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/tile/StartTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/tile/Tile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/BridgeMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/card/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/card/HammerCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/card/HammerCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/card/PhilipsDriverCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/card/PhilipsDriverCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/card/SawCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/card/SawCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/map/Map.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tile/BridgeTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tile/CellTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tile/EndTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tile/ItemTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tile/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tile/StartTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tile/Tile.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653902508349</updated>
-      <workItem from="1653902511170" duration="8880000" />
+      <workItem from="1653902511170" duration="18221000" />
     </task>
     <servers />
   </component>

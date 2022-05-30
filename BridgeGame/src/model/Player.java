@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Player {
     // player's name
-    private String name;
+    private final String name;
 
     // player's score
     private int score = 0;
@@ -21,6 +21,10 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getScore() {
