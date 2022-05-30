@@ -8,27 +8,22 @@ public class BridgeMap {
     // Linked List of all tiles
     private LinkedList<Tile> tileList;
 
-    // check if this bridge map is valid
-    private boolean available = true;
-
-    // map's height and width
-    private int height = 0;
-    private int width = 0;
+    // map's maximum and minimum position of x, y
+    private int maxX = 0;
+    private int minX = 0;
+    private int maxY = 0;
+    private int minY = 0;
 
     public LinkedList<Tile> getTileList() {
         return tileList;
     }
 
-    public boolean getAvailable() {
-        return available;
-    }
-
     public int getHeight() {
-        return height;
+        return maxY - minY;
     }
 
     public int getWidth() {
-        return width;
+        return maxX - minX;
     }
 
     public boolean inputSingleLineOnMapAndCheckAvailability(String inputString) {
@@ -67,10 +62,28 @@ public class BridgeMap {
             return false;
         }
 
+        // set max and min of x, y
+        setMaxAndMinOfXY(tile.position());
+
         // add the tile in tile list
         tileList.add(tile);
 
         return true;
+    }
+
+    // check if the max or min of x, y is changed
+    private void setMaxAndMinOfXY(Position position) {
+        if (position.x() > maxX) {
+            maxX = position.x();
+        } else if (position.x() < minX) {
+            minX = position.x();
+        }
+
+        if (position.y() > maxY) {
+            maxY = position.y();
+        } else if (position.y() < minY) {
+            minY = position.y();
+        }
     }
 
     // get the position of present tile
@@ -133,13 +146,13 @@ public class BridgeMap {
                     return false;
                 }
 
-                if (tileList.get(i).position() == tile.position()) {
+                if (tileList.get(i).position().equals(tile.position())) {
                     return false;
                 }
             }
         } else {
             for (int i = tileList.size() - 1; i >= 0; i--) {
-                if (tileList.get(i).position() == tile.position()) {
+                if (tileList.get(i).position().equals(tile.position())) {
                     return false;
                 }
             }

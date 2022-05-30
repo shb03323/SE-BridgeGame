@@ -2,21 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/model/BridgeMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/model/Position.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/map/BridgeMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/tile/BridgeTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/tile/CellTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/tile/EndTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/tile/ItemTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/tile/StartTile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/tile/Tile.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/map/Map.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tile/BridgeTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tile/CellTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tile/EndTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tile/ItemTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tile/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tile/StartTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tile/Tile.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +77,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653902508349</updated>
-      <workItem from="1653902511170" duration="18221000" />
+      <workItem from="1653902511170" duration="18535000" />
     </task>
     <servers />
   </component>
