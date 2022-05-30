@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/card/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/card/PhilipsDriverCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/tile/BridgeTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/tile/CellTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/tile/EndTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/tile/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/tile/StartTile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/tile/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/card/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/card/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/card/HammerCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/card/HammerCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/card/PhilipsDriverCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/card/PhilipsDriverCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/card/SawCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/card/SawCard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +51,26 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="MainController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controller.MainController" />
+      <module name="BridgeGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainController" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653902508349</updated>
-      <workItem from="1653902511170" duration="3630000" />
+      <workItem from="1653902511170" duration="8880000" />
     </task>
     <servers />
   </component>

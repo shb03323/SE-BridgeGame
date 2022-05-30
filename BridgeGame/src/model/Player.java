@@ -1,5 +1,6 @@
 package model;
 
+import jdk.jshell.spi.ExecutionControl;
 import model.card.Card;
 
 import java.util.ArrayList;
@@ -18,9 +19,6 @@ public class Player {
      */
     private boolean status = true;
 
-    // cards which player is holding
-    private ArrayList<Card> cardList = new ArrayList();
-
     public Player(String name) {
         this.name = name;
     }
@@ -29,7 +27,7 @@ public class Player {
         return score;
     }
 
-    public void setScore(int score) {
+    private void setScore(int score) {
         this.score = score;
     }
 
@@ -41,11 +39,12 @@ public class Player {
         this.status = status;
     }
 
-    public void obtainCard(Card card) {
-        this.cardList.add(card);
-    }
-
-    public boolean useCard(Card card) {
-        // TODO : add logic of card using
+    public void obtainCard(Card card) throws Exception {
+        switch (card.getClass().getSimpleName()) {
+            case "PhilipsDriverCard" -> score += 1;
+            case "HammerCard" -> score += 2;
+            case "SawCard" -> score += 3;
+            default -> throw new Exception("There are no such cards in this game.");
+        }
     }
 }
