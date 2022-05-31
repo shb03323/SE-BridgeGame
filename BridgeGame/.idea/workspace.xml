@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/BridgeMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/model/BridgeMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BridgeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BridgeMap.java" afterDir="false" />
-    </list>
+    <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653902508349</updated>
       <workItem from="1653902511170" duration="18535000" />
-      <workItem from="1653988749779" duration="6156000" />
+      <workItem from="1653988749779" duration="6570000" />
     </task>
     <servers />
   </component>

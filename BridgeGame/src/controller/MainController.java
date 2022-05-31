@@ -4,9 +4,12 @@ import model.Player;
 import model.Position;
 import model.card.HammerCard;
 import model.BridgeMap;
+import view.MainFrame;
 
 public class MainController {
     public static void main(String[] args) throws Exception {
+        MainFrame gameView = new MainFrame();
+
         // TODO : init players
         Player player1 = new Player("minhyuk");
         player1.obtainCard(new HammerCard());
@@ -14,7 +17,5 @@ public class MainController {
 
         // initiation map
         BridgeMap bridgeMap = FileController.initMap();
-        System.out.println(bridgeMap.getHeight());
-        System.out.println(bridgeMap.getWidth());
     }
 }
