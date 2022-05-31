@@ -26,7 +26,7 @@ public class MapValidator extends Validator {
     public void validate() throws Exception {
         String str;
         while ((str = reader.readLine()) != null) {
-            if(!inputSingleLineOnMapAndCheckAvailability(str)) {
+            if(!checkSingleLineOnMapAvailability(str)) {
                 throw new Exception("This map file has an error");
             }
         }
@@ -42,7 +42,7 @@ public class MapValidator extends Validator {
     }
 
     // check single line of input
-    private boolean inputSingleLineOnMapAndCheckAvailability(String inputString) {
+    private boolean checkSingleLineOnMapAvailability(String inputString) {
         // remove spaces in input string
         inputString = inputString.replaceAll(" ", "");
 

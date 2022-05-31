@@ -8,9 +8,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class MapController {
-    public static BridgeMap initMap() throws Exception {
+    // map for using in the game
+    private static BridgeMap bridgeMap;
+
+    public void initMap() throws Exception {
         // TODO : File name 입력하는 칸 만들고 default와 user input 구분하기
-        BridgeMap bridgeMap = new BridgeMap();
+        bridgeMap = new BridgeMap();
         String currentWorkingDirectory = System.getProperty("user.dir");
 
         // load map
@@ -24,6 +27,6 @@ public class MapController {
         assert fReader != null;
         MapValidator mapValidator = new MapValidator(new BufferedReader(fReader), bridgeMap);
         mapValidator.validate();
-        return mapValidator.getValidatedMap();
+        bridgeMap = mapValidator.getValidatedMap();
     }
 }
