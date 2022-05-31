@@ -1,7 +1,6 @@
 package controller;
 
 import model.Player;
-import model.Position;
 import model.card.HammerCard;
 import model.BridgeMap;
 import view.MainFrame;
