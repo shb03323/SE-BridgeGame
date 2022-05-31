@@ -1,27 +1,33 @@
 package controller;
 
+import model.BridgeMap;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 public class FileController {
-    // name of map
-    private String mapName;
+    public static BridgeMap initMap() throws Exception {
+        // TODO : File name 입력하는 칸 만들고 default와 user input 구분하기
+        BridgeMap bridgeMap = new BridgeMap();
+        String currentWorkingDirectory = System.getProperty("user.dir");
 
-    // buffered reader to read file
-    BufferedReader reader;
+        // load map
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(currentWorkingDirectory + "/src/assets/map/" + bridgeMap.getMapName()));
 
-    public FileController(String mapName) throws FileNotFoundException {
-        this.mapName = mapName;
-        reader = new BufferedReader(new FileReader("../assets/map/" + mapName));
-    }
+            // check the validation of map file
+            String str;
+            while ((str = reader.readLine()) != null) {
+                if(!bridgeMap.inputSingleLineOnMapAndCheckAvailability(str)) {
+                    throw new Exception("This map file has an error");
+                }
+            }
+            reader.close();
+        } catch(FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
-    public BufferedReader getReader() {
-        return reader;
-    }
-
-    public void closeReader() throws IOException {
-        reader.close();
+        return bridgeMap;
     }
 }

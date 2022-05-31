@@ -10,9 +10,11 @@ public class MainController {
         // TODO : init players
         Player player1 = new Player("minhyuk");
         player1.obtainCard(new HammerCard());
-        BridgeMap bridgeMap = new BridgeMap();
-        System.out.println(new Position(1, 1).equals(new Position(1, 1)));
-
         System.out.println(player1.getScore());
+
+        // initiation map
+        BridgeMap bridgeMap = FileController.initMap();
+        System.out.println(bridgeMap.getHeight());
+        System.out.println(bridgeMap.getWidth());
     }
 }

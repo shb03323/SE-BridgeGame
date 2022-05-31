@@ -5,14 +5,25 @@ import model.Tile;
 import java.util.LinkedList;
 
 public class BridgeMap {
+    // map name
+    private String mapName = "default.map";
+
     // Linked List of all tiles
-    private LinkedList<Tile> tileList;
+    private final LinkedList<Tile> tileList = new LinkedList<>();
 
     // map's maximum and minimum position of x, y
     private int maxX = 0;
     private int minX = 0;
     private int maxY = 0;
     private int minY = 0;
+
+    public void setMapName(String mapName) {
+        this.mapName = mapName;
+    }
+
+    public String getMapName() {
+        return mapName;
+    }
 
     public LinkedList<Tile> getTileList() {
         return tileList;
@@ -43,23 +54,21 @@ public class BridgeMap {
             }
             tile = new Tile(inputString.charAt(0), new Position(0, 0), inputString.charAt(1));
         } else {
-            if (inputString.charAt(0) == 'S') {
-                return false;
-            } else if (inputString.charAt(0) == 'E') {
+            if (inputString.charAt(0) == 'E') {
                 tile = new Tile(inputString.charAt(0), getPresentPosition(), null);
             } else {
                 tile = new Tile(inputString.charAt(0), getPresentPosition(), inputString.charAt(2));
+
+                // check if tile direction is valid
+                if (!checkDirectionAvailable(inputString.charAt(1))) {
+                    return false;
+                }
             }
-        }
 
-        // check if tile direction is valid
-        if (!checkDirectionAvailable(inputString.charAt(1))) {
-            return false;
-        }
-
-        // check if tile is valid
-        if (!checkTileAvailable(tile)) {
-            return false;
+            // check if tile is valid
+            if (!checkTileAvailable(tile)) {
+                return false;
+            }
         }
 
         // set max and min of x, y
@@ -141,15 +150,18 @@ public class BridgeMap {
      */
     private boolean checkTileAvailable(Tile tile) {
         if (tile.tileName() == 'b') {
+            // flag for checking bridge validity
+            boolean flag = false;
             for (int i = tileList.size() - 1; i >= 0; i--) {
                 if (tileList.get(i).tileName() == 'B' && tileList.get(i).position().x() == tile.position().x() - 2) {
-                    return false;
+                    flag = true;
                 }
 
                 if (tileList.get(i).position().equals(tile.position())) {
                     return false;
                 }
             }
+            return flag;
         } else {
             for (int i = tileList.size() - 1; i >= 0; i--) {
                 if (tileList.get(i).position().equals(tile.position())) {
