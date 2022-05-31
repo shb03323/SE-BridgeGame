@@ -1,12 +1,11 @@
 package controller;
 
-import model.Player;
-import model.PlayerList;
+import model.player.Player;
+import model.player.PlayerList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class PlayerController {
     public void initPlayers(int playerNum) throws IOException {

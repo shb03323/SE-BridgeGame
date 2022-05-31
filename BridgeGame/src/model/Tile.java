@@ -1,6 +1,9 @@
 package model;
 
-public record Tile(
+import model.Position;
+
+public record
+Tile(
         char tileName,
         Position position,
         Character nextDirection

@@ -1,4 +1,4 @@
-package model;
+package model.player;
 
 import jdk.jshell.spi.ExecutionControl;
 import model.card.Card;

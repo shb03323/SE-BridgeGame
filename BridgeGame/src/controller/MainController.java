@@ -1,6 +1,6 @@
 package controller;
 
-import model.Player;
+import model.player.Player;
 import model.card.HammerCard;
 import model.BridgeMap;
 import view.MainFrame;
@@ -15,6 +15,6 @@ public class MainController {
         System.out.println(player1.getScore());
 
         // initiation map
-        BridgeMap bridgeMap = FileController.initMap();
+        BridgeMap bridgeMap = MapController.initMap();
     }
 }
