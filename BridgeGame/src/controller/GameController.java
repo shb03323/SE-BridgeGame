@@ -15,6 +15,9 @@ public class GameController {
     }
 
     public void takeTurn() throws Exception {
-        playerController.chooseAction();
+        int moveCount = playerController.chooseAction();
+        if (moveCount > 0) {
+            playerController.inputMovement(moveCount);
+        }
     }
 }
