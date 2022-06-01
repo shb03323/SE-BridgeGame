@@ -20,11 +20,9 @@ public class PlayerScoreBoard extends JPanel {
         JPanel panel = new JPanel(new GridLayout(3, 3));
         Util.changePanelWithBorder(panel);
 
-        String currentWorkingDirectory = System.getProperty("user.dir");
+
         JLabel playerName = getPlayerNameLabel(i);
-        JLabel playerIcon = new JLabel();
-        playerIcon.setIcon(new ImageIcon(currentWorkingDirectory + "/src/assets/tile/Player" + (i + 1) + ".png"));
-        playerIcon.setSize(12, 12);
+        JLabel playerIcon = getPlayerIconLabel(i);
         panel.add(playerName);
         panel.add(playerIcon);
         this.add(panel);
@@ -32,9 +30,15 @@ public class PlayerScoreBoard extends JPanel {
 
     private JLabel getPlayerNameLabel(int i) {
         JLabel playerName = new JLabel("Player " + (i + 1));
-
-        Font font = new Font("Arial", Font.BOLD, 20);
-        playerName.setFont(font);
+        Util.setBigText(playerName);
+        playerName.setHorizontalAlignment(JLabel.CENTER);
         return playerName;
+    }
+
+    private JLabel getPlayerIconLabel(int i) {
+        String currentWorkingDirectory = System.getProperty("user.dir");
+        ImageIcon imageIcon = new ImageIcon(currentWorkingDirectory + "/src/assets/tile/Player" + (i + 1) + ".png");
+        imageIcon = Util.setIconSize(imageIcon, 40);
+        return new JLabel(imageIcon);
     }
 }
