@@ -12,6 +12,9 @@ public class Player {
     // player's score
     private int score = 0;
 
+    // number of bridge cards
+    private int bridgeCardNum = 0;
+
     /**
      * player's status. In game or end game
      * true : in game
@@ -31,8 +34,20 @@ public class Player {
         return score;
     }
 
-    private void setScore(int score) {
-        this.score = score;
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public void obtainBridgeCard() {
+        bridgeCardNum++;
+    }
+
+    public void useBridgeCard() {
+        bridgeCardNum--;
+    }
+
+    public int getBridgeCardNum() {
+        return bridgeCardNum;
     }
 
     public boolean getStatus() {

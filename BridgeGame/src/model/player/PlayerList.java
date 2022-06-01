@@ -10,19 +10,14 @@ public class PlayerList {
     private ArrayList<Player> playerList;
 
     // turn of player
-    private int turn = 0;
+    private int turn = -1;
 
     public void addPlayer(Player player) {
         playerList.add(player);
     }
 
     public Player getNextPlayer() {
-        int playerIndex = turn;
-        turn = playerIndex++ % playerList.size();
-        return playerList.get(playerIndex);
-    }
-
-    public void removePlayer() {
-        playerList.remove(turn);
+        turn = ++turn % playerList.size();
+        return playerList.get(turn);
     }
 }
