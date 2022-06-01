@@ -26,7 +26,8 @@ public class MapController {
 
         assert fReader != null;
         MapValidator mapValidator = new MapValidator(new BufferedReader(fReader), bridgeMap);
-        mapValidator.validate();
-        bridgeMap = mapValidator.getValidatedMap();
+        if (mapValidator.validate()) {
+            bridgeMap = mapValidator.getValidatedMap();
+        }
     }
 }

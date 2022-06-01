@@ -23,7 +23,7 @@ public class MapValidator extends Validator {
 
     // check the validation of map file
     @Override
-    public void validate() throws Exception {
+    public boolean validate() throws Exception {
         String str;
         while ((str = reader.readLine()) != null) {
             if(!checkSingleLineOnMapAvailability(str)) {
@@ -35,6 +35,7 @@ public class MapValidator extends Validator {
         // set map's height and width
         bridgeMap.setWidth(maxX - minX);
         bridgeMap.setHeight(maxY - minY);
+        return true;
     }
 
     public BridgeMap getValidatedMap() {

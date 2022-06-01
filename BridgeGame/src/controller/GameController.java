@@ -14,7 +14,7 @@ public class GameController {
         mapController.initMap();
     }
 
-    public void takeTurn() {
-
+    public void takeTurn() throws Exception {
+        playerController.chooseAction();
     }
 }

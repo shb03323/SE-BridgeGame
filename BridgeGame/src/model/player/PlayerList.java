@@ -20,4 +20,8 @@ public class PlayerList {
         turn = ++turn % playerList.size();
         return playerList.get(turn);
     }
+
+    public Player getPlayer() {
+        return playerList.get(turn);
+    }
 }

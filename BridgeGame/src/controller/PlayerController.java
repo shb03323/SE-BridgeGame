@@ -2,9 +2,11 @@ package controller;
 
 import model.player.Player;
 import model.player.PlayerList;
+import validator.PlayerCanStayValidator;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Random;
 
 public class PlayerController {
     // player list for game
@@ -18,26 +20,35 @@ public class PlayerController {
         }
     }
 
-    public void chooseAction() {
+    public void chooseAction() throws Exception {
         // TODO : GUI에서 행동을 선택하도록 함
         boolean flag = true;
-        boolean stay = false;
         if (flag) {
-            rollTheDice();
+            int diceNum = rollTheDice();
+            chooseMovement(diceNum);
         } else {
-            if (stay) {
-                // TODO : stay할 수 있는 지 확인
+            if (new PlayerCanStayValidator(playerList.getPlayer()).validate()) {
+                stay();
             } else {
-                rollTheDice();
+                alertCannotStay();
             }
         }
     }
 
-    private void rollTheDice() {
+    private int rollTheDice() {
+        Random random = new Random();
+        return random.nextInt(1, 7);
+    }
+
+    private void chooseMovement(int num) {
 
     }
 
     private void stay() {
+
+    }
+
+    private void alertCannotStay() {
 
     }
 }
