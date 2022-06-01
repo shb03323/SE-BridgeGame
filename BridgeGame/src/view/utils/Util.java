@@ -10,14 +10,14 @@ public interface Util {
         panel.setBorder(blackline);
     }
 
-    public static void setBigText(JLabel label) {
-        Font font = new Font("Arial", Font.BOLD, 20);
+    public static void setTextSize(JLabel label, int size) {
+        Font font = new Font("Arial", Font.BOLD, size);
         label.setFont(font);
     }
 
     public static ImageIcon setIconSize(ImageIcon icon, int size) {
         Image image = icon.getImage();
-        Image newImage = image.getScaledInstance(size, size,  java.awt.Image.SCALE_SMOOTH);
+        Image newImage = image.getScaledInstance(size, size, Image.SCALE_SMOOTH);
         icon = new ImageIcon(newImage);
         return icon;
     }
