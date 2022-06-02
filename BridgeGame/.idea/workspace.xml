@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="&quot;[FEAT] add Players in PlayerScoreBoard&quot;">
+      <change afterPath="$PROJECT_DIR$/src/validator/PlayerNumberValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/GameController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/view/PlayerScoreBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/view/PlayerScoreBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/tile/Player1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/tile/Player1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/tile/Player2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/tile/Player2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/tile/Player3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/tile/Player3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/tile/Player4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/tile/Player4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/view/utils/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/view/utils/Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/PlayerScoreBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PlayerScoreBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/utils/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/utils/Util.java" afterDir="false" />
     </list>
@@ -90,7 +90,8 @@
       <workItem from="1653902511170" duration="18535000" />
       <workItem from="1653988749779" duration="7189000" />
       <workItem from="1654012531594" duration="15076000" />
-      <workItem from="1654096150915" duration="11038000" />
+      <workItem from="1654096150915" duration="11077000" />
+      <workItem from="1654145964595" duration="3878000" />
     </task>
     <servers />
   </component>

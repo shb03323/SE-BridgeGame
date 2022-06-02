@@ -7,6 +7,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class PlayerScoreBoard extends JPanel {
+    // Set players score board, must input player number.
     public PlayerScoreBoard(int playerNum) {
         this.setLayout(new GridLayout(playerNum, 0));
 
@@ -23,7 +24,6 @@ public class PlayerScoreBoard extends JPanel {
         JLabel playerName = getPlayerNameLabel(i);
         JLabel playerIcon = getPlayerIconLabel(i);
         JLabel playerScore = getPlayerScoreLabel(i);
-        JLabel playerBridgeCard = getPlayerBridgeCard(i);
         panel.add(playerName);
         panel.add(playerIcon);
         panel.add(playerScore);
