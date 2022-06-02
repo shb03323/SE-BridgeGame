@@ -18,9 +18,7 @@ public class PlayerController {
     public void initPlayers() throws Exception {
         PlayerList playerList = new PlayerList();
         int playerNumber = getPlayerNumberByUserInput();
-        for (String name : getPlayersNameByUserInput(playerNumber)) {
-            playerList.addPlayer(new Player(name));
-        }
+        setPlayerListByUserInput(playerNumber);
     }
 
     /**
@@ -52,7 +50,7 @@ public class PlayerController {
     private int getPlayerNumberByUserInput() throws Exception {
         int result;
         while (true) {
-            String playerNumber = (String) JOptionPane.showInputDialog(this, "Input player number 2 ~ 4", null, JOptionPane.PLAIN_MESSAGE, null, null, null);
+            String playerNumber = (String) JOptionPane.showInputDialog(null, "Input player number 2 ~ 4", null, JOptionPane.PLAIN_MESSAGE, null, null, null);
             PlayerNumberValidator playerNumberValidator = new PlayerNumberValidator(playerNumber);
             if (playerNumberValidator.validate()) {
                 result = Integer.parseInt(playerNumber);
@@ -64,8 +62,11 @@ public class PlayerController {
     }
 
     // set each player's name
-    private String[] getPlayersNameByUserInput(int playerNum) {
-
+    private void setPlayerListByUserInput(int playerNum) {
+        for (int i = 1; i <= playerNum; i++) {
+            String playerName = (String) JOptionPane.showInputDialog(null, "Input player " + i + "'s name", null, JOptionPane.PLAIN_MESSAGE, null, null, null);
+            playerList.addPlayer(new Player(playerName));
+        }
     }
 
     // system roll the dice
