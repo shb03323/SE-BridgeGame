@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class PlayerController {
     // player list for game
-    private PlayerList playerList;
+    private PlayerList playerList = new PlayerList();
 
     // init players
     public void initPlayers() throws Exception {

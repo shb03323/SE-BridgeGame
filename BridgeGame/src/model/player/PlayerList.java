@@ -7,7 +7,7 @@ public class PlayerList {
      * player list who are playing a game.
      * Except player who finished a game.
      */
-    private ArrayList<Player> playerList;
+    private ArrayList<Player> playerList = new ArrayList<>();
 
     // turn of player
     private int turn = -1;
