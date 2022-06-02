@@ -3,6 +3,7 @@ package controller;
 import model.BridgeMap;
 import validator.MapValidator;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -12,8 +13,8 @@ public class MapController {
     private static BridgeMap bridgeMap;
 
     public void initMap() throws Exception {
-        // TODO : File name 입력하는 칸 만들고 default와 user input 구분하기
-        bridgeMap = new BridgeMap();
+        // FIXME : you can change the map in here.
+        bridgeMap = new BridgeMap("default.map");
         String currentWorkingDirectory = System.getProperty("user.dir");
 
         // load map
@@ -28,6 +29,9 @@ public class MapController {
         MapValidator mapValidator = new MapValidator(new BufferedReader(fReader), bridgeMap);
         if (mapValidator.validate()) {
             bridgeMap = mapValidator.getValidatedMap();
+        } else {
+            JOptionPane.showMessageDialog(null, "Map has error.\nTerminate the program.");
+            System.exit(0);
         }
     }
 }

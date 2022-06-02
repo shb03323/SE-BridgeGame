@@ -3,12 +3,11 @@ package view;
 import view.utils.Util;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
-public class PlayerScoreBoard extends JPanel {
+public class PlayerScoreBoardPanel extends JPanel {
     // Set players score board, must input player number.
-    public PlayerScoreBoard(int playerNum) {
+    public PlayerScoreBoardPanel(int playerNum) {
         this.setLayout(new GridLayout(playerNum, 0));
 
         for (int i = 0; i < playerNum; i++) {

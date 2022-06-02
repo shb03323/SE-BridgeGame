@@ -25,12 +25,18 @@ public class MapValidator extends Validator {
     @Override
     public boolean validate() throws Exception {
         String str;
-        while ((str = reader.readLine()) != null) {
-            if(!checkSingleLineOnMapAvailability(str)) {
-                throw new Exception("This map file has an error");
+        try {
+            while ((str = reader.readLine()) != null) {
+                if(!checkSingleLineOnMapAvailability(str)) {
+                    throw new Exception("This map file has an error");
+                }
             }
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            reader.close();
         }
-        reader.close();
 
         // set map's height and width
         bridgeMap.setWidth(maxX - minX);

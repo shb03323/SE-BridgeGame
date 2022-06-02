@@ -4,16 +4,16 @@ import java.util.LinkedList;
 
 public class BridgeMap {
     // map name
-    private String mapName = "default.map";
+    private final String mapName;
 
     // tile list of map
-    private LinkedList<Tile> mapTileList = new LinkedList<>();
+    private final LinkedList<Tile> mapTileList = new LinkedList<>();
 
     // width and height of map
     private int width;
     private int height;
 
-    public void setMapName(String mapName) {
+    public BridgeMap(String mapName) {
         this.mapName = mapName;
     }
 
