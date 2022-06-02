@@ -3,7 +3,9 @@ package controller;
 import model.player.Player;
 import model.player.PlayerList;
 import validator.PlayerCanStayValidator;
+import validator.PlayerNumberValidator;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Random;
@@ -13,12 +15,11 @@ public class PlayerController {
     private PlayerList playerList;
 
     // init players
-    public void initPlayers(int playerNum) throws Exception {
-        // TODO : 콘솔 말고 GUI로 받기
+    public void initPlayers() throws Exception {
         PlayerList playerList = new PlayerList();
-        for (int i = 0; i < playerNum; i++) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            playerList.addPlayer(new Player(reader.readLine()));
+        int playerNumber = getPlayerNumberByUserInput();
+        for (String name : getPlayersNameByUserInput(playerNumber)) {
+            playerList.addPlayer(new Player(name));
         }
     }
 
@@ -45,6 +46,26 @@ public class PlayerController {
                 }
             }
         }
+    }
+
+    // get player number and each player name by GUI input
+    private int getPlayerNumberByUserInput() throws Exception {
+        int result;
+        while (true) {
+            String playerNumber = (String) JOptionPane.showInputDialog(this, "Input player number 2 ~ 4", null, JOptionPane.PLAIN_MESSAGE, null, null, null);
+            PlayerNumberValidator playerNumberValidator = new PlayerNumberValidator(playerNumber);
+            if (playerNumberValidator.validate()) {
+                result = Integer.parseInt(playerNumber);
+                break;
+            }
+        }
+
+        return result;
+    }
+
+    // set each player's name
+    private String[] getPlayersNameByUserInput(int playerNum) {
+
     }
 
     // system roll the dice
