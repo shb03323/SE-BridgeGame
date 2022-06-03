@@ -8,46 +8,38 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class PlayerScoreBoardPanel extends JPanel implements Observer {
-    private int playerNum;
-    private ArrayList<JLabel> playerNameList;
-    private ArrayList<JLabel> playerScoreList;
+    private final ArrayList<JLabel> playerScoreList = new ArrayList<>();
 
     // Set players score board, must input player number.
-    public PlayerScoreBoardPanel() {
-        initPlayerNumber(playerNum);
+    public PlayerScoreBoardPanel(int playerNum, ArrayList<String> playerNames) {
         this.setLayout(new GridLayout(playerNum, 0));
 
         for (int i = 0; i < playerNum; i++) {
-            playerNameList.add(new JLabel("player"));
-            setSinglePlayerInfoBoard(i);
+            playerScoreList.add(new JLabel("Score : 0"));
+            setSinglePlayerInfoBoard(i, playerNames.get(i));
         }
     }
 
     // set player information on board
-    private void setSinglePlayerInfoBoard(int i) {
+    private void setSinglePlayerInfoBoard(int i, String name) {
         JPanel panel = new JPanel(new GridLayout(4, 0));
         Util.changePanelWithBorder(panel);
 
-        JLabel playerName = playerController.setPlayerNameLabel(i);
-        JLabel playerIcon = playerController.setPlayerIconLabel(i);
-        JLabel playerScore = playerController.setPlayerScoreLabel(i);
+        JLabel playerName = setPlayerNameLabel(i, name);
+        JLabel playerIcon = setPlayerIconLabel(i);
+        JLabel playerScore = setPlayerScoreLabel(i);
         panel.add(playerName);
         panel.add(playerIcon);
         panel.add(playerScore);
         this.add(panel);
     }
 
-    public void setPlayerScoreLabel(int playerIndex, int score) {
-
-    }
-
     // set player information
-    public JLabel setPlayerNameLabel(int i) {
-        playerNameList.get(i).setText(pl);
-        playerName.setText(playerName);
-        Util.setTextSize(playerName, 20);
-        playerName.setHorizontalAlignment(JLabel.CENTER);
-        return playerName;
+    public JLabel setPlayerNameLabel(int i, String name) {
+        JLabel nameLabel = new JLabel(name);
+        Util.setTextSize(nameLabel, 20);
+        nameLabel.setHorizontalAlignment(JLabel.CENTER);
+        return nameLabel;
     }
 
     public JLabel setPlayerIconLabel(int i) {
@@ -58,22 +50,13 @@ public class PlayerScoreBoardPanel extends JPanel implements Observer {
     }
 
     public JLabel setPlayerScoreLabel(int i) {
-        JLabel playerScore = new JLabel("Score : " + playerList.getPlayer(i).getScore());
-        playerScore.setHorizontalAlignment(JLabel.CENTER);
-        return playerScore;
-    }
-
-    public void setPlayerName(String name) {
-        playerName = name;
+        JLabel scoreLabel = playerScoreList.get(i);
+        scoreLabel.setHorizontalAlignment(JLabel.CENTER);
+        return scoreLabel;
     }
 
     @Override
-    public void initPlayerNumber(int playerNumber) {
-        playerNum = playerNumber;
-    }
+    public void initPlayerName(int i, String name) {
 
-    @Override
-    public void initPlayerName(String name) {
-        setPlayerName(name);
     }
 }

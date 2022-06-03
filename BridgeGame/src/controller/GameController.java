@@ -15,7 +15,7 @@ public class GameController extends Component {
     public void initGame() throws Exception {
         playerController.initPlayers();
         mapController.initMap();
-        gameView = new MainFrame();
+        gameView = new MainFrame(playerController, mapController);
     }
 
     public void takeTurn() throws Exception {

@@ -11,6 +11,7 @@ import view.utils.Util;
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class PlayerController {
@@ -21,11 +22,18 @@ public class PlayerController {
 
     // init players
     public void initPlayers() throws Exception {
-        observer = new PlayerScoreBoardPanel();
         playerList = new PlayerList();
         int playerNumber = getPlayerNumberByUserInput();
-        observer.initPlayerNumber(playerNumber);
         setPlayerListByUserInput(playerNumber);
+        ArrayList<String> playerNames = new ArrayList<>();
+        for (int i = 0; i < playerNumber; i++) {
+            playerNames.add(playerList.getPlayer(i).getName());
+        }
+        observer = new PlayerScoreBoardPanel(playerNumber, playerNames);
+    }
+
+    public Observer getPanel() {
+        return observer;
     }
 
     /**
@@ -73,7 +81,6 @@ public class PlayerController {
         for (int i = 1; i <= playerNum; i++) {
             String playerName = (String) JOptionPane.showInputDialog(null, "Input player " + i + "'s name", null, JOptionPane.PLAIN_MESSAGE, null, null, null);
             playerList.addPlayer(new Player(playerName));
-            observer.initPlayerName(playerName);
         }
     }
 

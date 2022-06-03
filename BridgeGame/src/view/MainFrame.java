@@ -1,13 +1,16 @@
 package view;
 
+import controller.MapController;
+import controller.PlayerController;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-    public MainFrame() {
+    public MainFrame(PlayerController playerController, MapController mapController) {
         setTitle("Bridge Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        initPanel();
+        initPanel(playerController, mapController);
 
         setWindow();
     }
@@ -18,13 +21,13 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    private void initPanel() {
+    private void initPanel(PlayerController playerController, MapController mapController) {
         Container container = this.getContentPane();
 
         // set border layout
         JPanel panel = new JPanel(new BorderLayout(100, 100));
 
-        panel.add(new PlayerScoreBoardPanel(), BorderLayout.WEST);
+        panel.add((Component) playerController.getPanel(), BorderLayout.WEST);
 
         container.add(panel);
     }
