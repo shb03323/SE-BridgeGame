@@ -3,10 +3,9 @@ package controller;
 import model.BridgeMap;
 import model.Tile;
 import validator.MapValidator;
-import view.ImagePanel;
+import view.ImageLabel;
 import view.MapObserver;
 import view.MapPanel;
-import view.PlayerScoreBoardObserver;
 import view.utils.Util;
 
 import javax.swing.*;
@@ -14,7 +13,6 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Objects;
 
 public class MapController {
     // map for using in the game
@@ -57,37 +55,46 @@ public class MapController {
     }
 
     // draw single cell
-    public JPanel drawConstraints(int i) {
+    public JPanel drawCell(int i) {
         JPanel panel = new JPanel();
         Tile tile = bridgeMap.getMapTileList().get(i);
-        int blockSize = 50;
+        int blockSize = 40;
 
         if (i == 0) {
             panel.setBounds((tile.getPosition().x() - 1) * blockSize, tile.getPosition().y() * blockSize,blockSize * 2, blockSize * 2);
         } else if (i == bridgeMap.getMapTileList().size() - 1) {
             panel.setBounds(tile.getPosition().x() * blockSize, (tile.getPosition().y() - 1) * blockSize,blockSize * 2, blockSize * 2);
         } else if (tile.getTileName() == 'S') {
-            Image image = new ImageIcon(System.getProperty("user.dir") + "/src/assets/tile/Saw.PNG").getImage();
-            panel.add(new ImagePanel(image, blockSize));
+            panel.add(new ImageLabel("Saw", 30));
             panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
         } else if (tile.getTileName() == 'H') {
-            Image image = new ImageIcon(System.getProperty("user.dir") + "/src/assets/tile/Hammer.PNG").getImage();
-            panel = new ImagePanel(image, blockSize);
+            panel.add(new ImageLabel("Hammer", 30));
             panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
         } else if (tile.getTileName() == 'P') {
-            Image image = new ImageIcon(System.getProperty("user.dir") + "/src/assets/tile/PhilipsDriver.PNG").getImage();
-            panel = new ImagePanel(image, blockSize);
+            panel.add(new ImageLabel("PhilipsDriver", 30));
             panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
         } else if (tile.getTileName() == 'B') {
-            Image image = new ImageIcon(System.getProperty("user.dir") + "/src/assets/tile/Cross.PNG").getImage();
-            panel = new ImagePanel(image, blockSize);
-            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
+            panel.setLayout(new GridLayout(1, 2));
+
+            JPanel cross = new JPanel();
+            cross.add(new ImageLabel("Cross", 30));
+            cross.setBackground(new Color(255, 226, 143));
+            Util.changePanelWithBorder(cross);
+            panel.add(cross);
+
+            JPanel bridge = new JPanel();
+            bridge.add(new ImageLabel("Bridge", 40));
+            panel.add(bridge);
+
+            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize * 2,  blockSize);
         } else {
             panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
         }
 
-        panel.setBackground(Color.yellow);
-        Util.changePanelWithBorder(panel);
+        if (tile.getTileName() != 'B') {
+            panel.setBackground(new Color(255, 226, 143));
+            Util.changePanelWithBorder(panel);
+        }
 
         return panel;
     }

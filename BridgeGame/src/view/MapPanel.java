@@ -14,7 +14,7 @@ public class MapPanel extends JPanel implements MapObserver {
 
         MapController mapController = new MapController();
         for (int i = 0; i < size; i++) {
-            cells[i] = mapController.drawConstraints(i);
+            cells[i] = mapController.drawCell(i);
             add(cells[i]);
         }
     }
