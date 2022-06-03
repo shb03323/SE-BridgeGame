@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/view/Observer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BridgeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BridgeMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/validator/MapValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/validator/MapValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/assets/map/default.map" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/assets/map/default.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/MapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/PlayerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/BridgeMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/model/BridgeMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/player/PlayerList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/view/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/view/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/player/PlayerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/player/PlayerList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/PlayerScoreBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PlayerScoreBoardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/PlayerScoreBoardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PlayerScoreBoardPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -45,6 +54,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.toDoOptions"
   }
 }]]></component>

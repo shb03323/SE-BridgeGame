@@ -2,6 +2,7 @@ package controller;
 
 import validator.PlayerNumberValidator;
 import view.MainFrame;
+import view.PlayerScoreBoardPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +15,7 @@ public class GameController extends Component {
     public void initGame() throws Exception {
         playerController.initPlayers();
         mapController.initMap();
+        gameView = new MainFrame();
     }
 
     public void takeTurn() throws Exception {

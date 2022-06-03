@@ -4,6 +4,9 @@ import model.player.Player;
 import model.player.PlayerList;
 import validator.PlayerCanStayValidator;
 import validator.PlayerNumberValidator;
+import view.Observer;
+import view.PlayerScoreBoardPanel;
+import view.utils.Util;
 
 import javax.swing.*;
 import java.io.BufferedReader;
@@ -12,12 +15,16 @@ import java.util.Random;
 
 public class PlayerController {
     // player list for game
-    private PlayerList playerList = new PlayerList();
+    private PlayerList playerList;
+
+    private Observer observer;
 
     // init players
     public void initPlayers() throws Exception {
-        PlayerList playerList = new PlayerList();
+        observer = new PlayerScoreBoardPanel();
+        playerList = new PlayerList();
         int playerNumber = getPlayerNumberByUserInput();
+        observer.initPlayerNumber(playerNumber);
         setPlayerListByUserInput(playerNumber);
     }
 
@@ -66,6 +73,7 @@ public class PlayerController {
         for (int i = 1; i <= playerNum; i++) {
             String playerName = (String) JOptionPane.showInputDialog(null, "Input player " + i + "'s name", null, JOptionPane.PLAIN_MESSAGE, null, null, null);
             playerList.addPlayer(new Player(playerName));
+            observer.initPlayerName(playerName);
         }
     }
 

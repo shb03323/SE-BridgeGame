@@ -7,27 +7,24 @@ public class MainFrame extends JFrame {
     public MainFrame() {
         setTitle("Bridge Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPanel();
+        initPanel();
 
         setWindow();
     }
 
     private void setWindow() {
-        setSize(800, 800);
+        setSize(1000, 1000);
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
-    private void setPanel() {
+    private void initPanel() {
         Container container = this.getContentPane();
-
-        // TODO : change playerNum to user input
-        int playerNum = 4;
 
         // set border layout
         JPanel panel = new JPanel(new BorderLayout(100, 100));
 
-        panel.add(new PlayerScoreBoardPanel(playerNum), BorderLayout.WEST);
+        panel.add(new PlayerScoreBoardPanel(), BorderLayout.WEST);
 
         container.add(panel);
     }

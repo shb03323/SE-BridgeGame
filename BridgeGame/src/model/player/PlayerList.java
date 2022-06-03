@@ -24,4 +24,8 @@ public class PlayerList {
     public Player getPlayer() {
         return playerList.get(turn);
     }
+
+    public Player getPlayer(int i) {
+        return playerList.get(i);
+    }
 }
