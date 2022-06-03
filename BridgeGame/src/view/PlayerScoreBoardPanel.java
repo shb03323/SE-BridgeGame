@@ -1,13 +1,12 @@
 package view;
 
-import controller.PlayerController;
 import view.utils.Util;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class PlayerScoreBoardPanel extends JPanel implements Observer {
+public class PlayerScoreBoardPanel extends JPanel implements PlayerScoreBoardObserver {
     private final ArrayList<JLabel> playerScoreList = new ArrayList<>();
     private final ArrayList<JLabel> bridgeCardList = new ArrayList<>();
 

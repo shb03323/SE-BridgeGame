@@ -34,4 +34,8 @@ public class MapController {
             System.exit(0);
         }
     }
+
+    private void drawMap() {
+
+    }
 }

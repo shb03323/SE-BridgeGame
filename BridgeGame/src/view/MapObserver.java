@@ -1,2 +1,4 @@
-package view;public interface MapObserver {
+package view;
+
+public interface MapObserver {
 }
