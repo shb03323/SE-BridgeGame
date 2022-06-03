@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="&quot;[FEAT] add Players in PlayerScoreBoard&quot;">
-      <change afterPath="$PROJECT_DIR$/src/view/ImagePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/MapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/validator/MapValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/validator/MapValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/validator/MapValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/validator/MapValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MapPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

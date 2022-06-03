@@ -5,15 +5,16 @@ import java.awt.*;
 
 public class ImagePanel extends JPanel {
     private Image img;
+    private int size;
 
-    public ImagePanel(Image img) {
+    public ImagePanel(Image img, int size) {
         this.img = img;
-        setSize(new Dimension(img.getWidth(null), img.getHeight(null)));
-        setPreferredSize(new Dimension(img.getWidth(null), img.getHeight(null)));
+        this.size = size;
+        setSize(size, size);
         setLayout(null);
     }
 
     public void paintComponent(Graphics g) {
-        g.drawImage(img, 0, 0, null);
+        g.drawImage(img, 5, 5, size - 10, size - 10, null);
     }
 }

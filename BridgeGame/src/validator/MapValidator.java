@@ -68,7 +68,7 @@ public class MapValidator extends Validator {
             if (inputString.charAt(0) != 'S') {
                 return false;
             }
-            tile = new Tile(inputString.charAt(0), new Position(0, 0), inputString.charAt(1));
+            tile = new Tile(inputString.charAt(0), new Position(1, 0), inputString.charAt(1));
         } else {
             if (inputString.charAt(0) == 'E') {
                 tile = new Tile(inputString.charAt(0), getPresentgetPosition(), null);
@@ -117,9 +117,9 @@ public class MapValidator extends Validator {
         int previousY = bridgeMap.getMapTileList().getLast().getPosition().y();
 
         if (bridgeMap.getMapTileList().getLast().getNextDirection() == 'U') {
-            return new Position(previousX, previousY + 1);
-        } else if (bridgeMap.getMapTileList().getLast().getNextDirection() == 'D') {
             return new Position(previousX, previousY - 1);
+        } else if (bridgeMap.getMapTileList().getLast().getNextDirection() == 'D') {
+            return new Position(previousX, previousY + 1);
         } else if (bridgeMap.getMapTileList().getLast().getNextDirection() == 'R') {
             return new Position(previousX + 1, previousY);
         } else {
