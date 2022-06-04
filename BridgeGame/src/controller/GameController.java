@@ -23,6 +23,6 @@ public class GameController extends Component {
     }
 
     public void startGame() throws Exception {
-        
+
     }
 }

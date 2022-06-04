@@ -103,7 +103,7 @@ public class PlayerController implements ActionListener {
                         // finish turn
                         turnNow = (turnNow + 1) % playerList.getPlayerListSize();
                         // change the text of remark label
-                        inputPanel.remark.setText(playerList.getPlayer(turnNow).getName() + " turn");
+                        inputPanel.setPlayerName(playerList.getPlayer(turnNow).getName());
                         break;
                     }
                     // when user input wrong, show error dialog
@@ -118,7 +118,7 @@ public class PlayerController implements ActionListener {
                     // finish turn
                     turnNow = (turnNow + 1) % playerList.getPlayerListSize();
                     // change the text of remark label
-                    inputPanel.remark.setText(playerList.getPlayer(turnNow).getName() + " turn");
+                    inputPanel.setPlayerName(playerList.getPlayer(turnNow).getName());
                 } else {
                     JOptionPane.showMessageDialog(null, "You don't have bridge card.");
                 }
