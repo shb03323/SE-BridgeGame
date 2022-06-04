@@ -1,7 +1,7 @@
 package view;
 
-import controller.MainController;
 import controller.MapController;
+import model.player.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +9,7 @@ import java.awt.*;
 public class MapPanel extends JPanel implements MapObserver {
     public JPanel[] cells;
     public MapPanel(int width, int height, int size) {
+        this.setPreferredSize(new Dimension(width * 40, height * 40));
         this.setLayout(null);
         cells = new JPanel[size];
 
@@ -17,5 +18,11 @@ public class MapPanel extends JPanel implements MapObserver {
             cells[i] = mapController.drawCell(i);
             add(cells[i]);
         }
+    }
+
+    @Override
+    public void move(int currentCell, int nextCell, int playerIndex) {
+        JPanel cellNow = cells[currentCell];
+        JPanel cellNext = cells[nextCell];
     }
 }

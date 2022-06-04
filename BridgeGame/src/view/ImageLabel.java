@@ -3,7 +3,6 @@ package view;
 import view.utils.Util;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class ImageLabel extends JLabel {
     public ImageLabel(String tile, int size) {

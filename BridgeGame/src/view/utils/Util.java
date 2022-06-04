@@ -6,19 +6,19 @@ import java.awt.*;
 
 public interface Util {
     // change panel with including border
-    public static void changePanelWithBorder(JPanel panel) {
+    static void changePanelWithBorder(JPanel panel) {
         Border blackline = BorderFactory.createLineBorder(Color.black);
         panel.setBorder(blackline);
     }
 
     // set the text to the size desired by the user
-    public static void setTextSize(JLabel label, int size) {
+    static void setTextSize(JLabel label, int size) {
         Font font = new Font("Arial", Font.BOLD, size);
         label.setFont(font);
     }
 
     // set the image icon to the size desired by the user
-    public static ImageIcon setIconSize(ImageIcon icon, int size) {
+    static ImageIcon setIconSize(ImageIcon icon, int size) {
         Image image = icon.getImage();
         Image newImage = image.getScaledInstance(size, size, Image.SCALE_SMOOTH);
         icon = new ImageIcon(newImage);

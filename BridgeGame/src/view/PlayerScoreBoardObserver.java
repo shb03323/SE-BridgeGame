@@ -1,6 +1,6 @@
 package view;
 
 public interface PlayerScoreBoardObserver {
-    public void setScore(int i, String score);
-    public void setBridgeCardNum(int i, String bridgeCardNum);
+    void setScore(int i, String score);
+    void setBridgeCardNum(int i, String bridgeCardNum);
 }
