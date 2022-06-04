@@ -27,10 +27,10 @@ public class PlayerScoreBoardPanel extends JPanel {
         JPanel panel = new JPanel(new GridLayout(4, 0));
         Util.changePanelWithBorder(panel);
 
-        JLabel playerName = setPlayerNameLabel(i, name);
-        JLabel playerIcon = setPlayerIconLabel(i);
-        JLabel playerScore = setPlayerScoreLabel(i);
-        JLabel bridgeCard = setBridgeCard(i);
+        JLabel playerName = initPlayerNameLabel(i, name);
+        JLabel playerIcon = initPlayerIconLabel(i);
+        JLabel playerScore = initPlayerScoreLabel(i);
+        JLabel bridgeCard = initBridgeCard(i);
         panel.add(playerName);
         panel.add(playerIcon);
         panel.add(playerScore);
@@ -39,27 +39,27 @@ public class PlayerScoreBoardPanel extends JPanel {
     }
 
     // set player information
-    private JLabel setPlayerNameLabel(int i, String name) {
+    private JLabel initPlayerNameLabel(int i, String name) {
         JLabel nameLabel = new JLabel(name);
         Util.setTextSize(nameLabel, 20);
         nameLabel.setHorizontalAlignment(JLabel.CENTER);
         return nameLabel;
     }
 
-    private JLabel setPlayerIconLabel(int i) {
+    private JLabel initPlayerIconLabel(int i) {
         String currentWorkingDirectory = System.getProperty("user.dir");
         ImageIcon imageIcon = new ImageIcon(currentWorkingDirectory + "/src/assets/tile/Player" + (i + 1) + ".png");
         imageIcon = Util.setIconSize(imageIcon, 40);
         return new JLabel(imageIcon);
     }
 
-    public JLabel setPlayerScoreLabel(int i) {
+    public JLabel initPlayerScoreLabel(int i) {
         JLabel scoreLabel = playerScoreList.get(i);
         scoreLabel.setHorizontalAlignment(JLabel.CENTER);
         return scoreLabel;
     }
 
-    public JLabel setBridgeCard(int i) {
+    public JLabel initBridgeCard(int i) {
         JLabel bridgeNumberLabel = bridgeCardList.get(i);
         bridgeNumberLabel.setHorizontalAlignment(JLabel.CENTER);
         return bridgeNumberLabel;
