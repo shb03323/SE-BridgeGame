@@ -68,12 +68,12 @@ public class MapValidator extends Validator {
             if (inputString.charAt(0) != 'S') {
                 return false;
             }
-            tile = new Tile(inputString.charAt(0), new Position(1, 0), inputString.charAt(1));
+            tile = new Tile(inputString.charAt(0), new Position(1, 0), inputString.charAt(1), null);
         } else {
             if (inputString.charAt(0) == 'E') {
-                tile = new Tile(inputString.charAt(0), getPresentgetPosition(), null);
+                tile = new Tile(inputString.charAt(0), getPresentgetPosition(), null, null);
             } else {
-                tile = new Tile(inputString.charAt(0), getPresentgetPosition(), inputString.charAt(2));
+                tile = new Tile(inputString.charAt(0), getPresentgetPosition(), inputString.charAt(2), inputString.charAt(1));
 
                 // check if tile direction is valid
                 if (!checkDirectionAvailable(inputString.charAt(1))) {

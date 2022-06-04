@@ -19,7 +19,7 @@ public class MapController {
     private static BridgeMap bridgeMap;
 
     // map view
-    private MapObserver mapObserver;
+    private MapPanel mapView;
 
     public void initMap() throws Exception {
         // FIXME : you can change the map in here.
@@ -46,12 +46,16 @@ public class MapController {
         drawMap();
     }
 
-    public MapObserver getPanel() {
-        return mapObserver;
+    public BridgeMap getMap() {
+        return bridgeMap;
+    }
+
+    public MapPanel getPanel() {
+        return mapView;
     }
 
     private void drawMap() {
-        mapObserver = new MapPanel(bridgeMap.getWidth(), bridgeMap.getHeight(), bridgeMap.getMapTileList().size());
+        mapView = new MapPanel(bridgeMap.getWidth(), bridgeMap.getHeight(), bridgeMap.getMapTileList().size());
     }
 
     // draw single cell

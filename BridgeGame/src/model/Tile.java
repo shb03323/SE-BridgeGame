@@ -4,11 +4,13 @@ public class Tile {
     private final char tileName;
     private Position position;
     private Character nextDirection;
+    private Character previousDirection;
 
-    public Tile(char tileName, Position position, Character nextDirection) {
+    public Tile(char tileName, Position position, Character nextDirection, Character previousDirection) {
         this.tileName = tileName;
         this.position = position;
         this.nextDirection = nextDirection;
+        this.previousDirection = previousDirection;
     }
 
     public char getTileName() {
@@ -23,7 +25,9 @@ public class Tile {
         return position;
     }
 
-    public char getNextDirection() {
+    public Character getNextDirection() {
         return nextDirection;
     }
+
+    public Character getPreviousDirection() { return previousDirection; }
 }

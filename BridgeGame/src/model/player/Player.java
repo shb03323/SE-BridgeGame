@@ -15,6 +15,9 @@ public class Player {
     // number of bridge cards
     private int bridgeCardNum = 0;
 
+    // index of the cell where the current player is
+    private int cellNow = 0;
+
     /**
      * player's status. In game or end game
      * true : in game
@@ -48,6 +51,14 @@ public class Player {
 
     public int getBridgeCardNum() {
         return bridgeCardNum;
+    }
+
+    public int getCellNow() {
+        return cellNow;
+    }
+
+    public void setCellNow(int cellNow) {
+        this.cellNow = cellNow;
     }
 
     public boolean getStatus() {

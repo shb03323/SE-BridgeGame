@@ -1,10 +1,11 @@
 package controller;
 
+import model.BridgeMap;
 import model.player.Player;
 import model.player.PlayerList;
 import validator.PlayerCanStayValidator;
+import validator.PlayerInputValidator;
 import validator.PlayerNumberValidator;
-import view.InputObserver;
 import view.InputPanel;
 import view.PlayerScoreBoardObserver;
 import view.PlayerScoreBoardPanel;
@@ -19,8 +20,18 @@ public class PlayerController implements ActionListener {
     // player list for game
     private PlayerList playerList;
 
+    // map for game
+    private BridgeMap bridgeMap;
+
+    // index of the player with the current turn
+    private int turnNow;
+
     private PlayerScoreBoardObserver playerScoreBoardObserver;
     private InputPanel inputPanel;
+
+    public PlayerController(BridgeMap bridgeMap) {
+        this.bridgeMap = bridgeMap;
+    }
 
     // init players
     public void initPlayers() throws Exception {
@@ -41,31 +52,6 @@ public class PlayerController implements ActionListener {
 
     public PlayerScoreBoardObserver getPanel() {
         return playerScoreBoardObserver;
-    }
-
-    /**
-     * Player can choose action when they get turn.
-     * return value is 0 ~ 6
-     * 0 : stay
-     * 1 ~ 6 : movement
-     */
-    public int chooseAction() throws Exception {
-        // TODO : GUI에서 행동을 선택하도록 함
-        boolean flag = true;
-        // cannot move when (dice value - bridge card number of player) is under 0
-        if (flag) {
-            int moveCount = rollTheDice() - playerList.getPlayer().getBridgeCardNum();
-            return Math.max(moveCount, 0);
-        } else {
-            while (true) {
-                if (new PlayerCanStayValidator(playerList.getPlayer()).validate()) {
-                    stay();
-                    return 0;
-                } else {
-                    alertCannotStay();
-                }
-            }
-        }
     }
 
     // get player number and each player name by GUI input
@@ -94,28 +80,49 @@ public class PlayerController implements ActionListener {
     // system roll the dice
     private int rollTheDice() {
         Random random = new Random();
-        int diceValue = random.nextInt(1, 7);
-        // TODO : show dice number in GUI
-        return diceValue;
+        return random.nextInt(1, 7);
     }
 
-    // input player movement
-    public void inputMovement(int num) {
-
-    }
-
-    private void stay() {
-
-    }
-
-    private void alertCannotStay() {
-
-    }
-
+    /**
+     * Roll : show input text field and player can input the string in it.
+     * Stay : player can stay and finish turn.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == inputPanel.moveButton) {
-
+        // when click Roll button, set up user input popup
+        if (e.getSource() == inputPanel.rollButton) {
+            while (true) {
+                int diceNum = rollTheDice();
+                String userInput = (String) JOptionPane.showInputDialog(null, "Dice number is " + diceNum, "Input Dialog", JOptionPane.PLAIN_MESSAGE, null, null, null);
+                try {
+                    PlayerInputValidator playerInputValidator = new PlayerInputValidator(userInput, diceNum, bridgeMap, turnNow);
+                    if (playerInputValidator.validate()) {
+                        playerList.getPlayer(turnNow).setCellNow(playerInputValidator.getTileIndex());
+                        // finish turn
+                        turnNow = (turnNow + 1) % playerList.getPlayerListSize();
+                        // change the text of remark label
+                        inputPanel.remark.setText(playerList.getPlayer(turnNow).getName() + " turn");
+                        break;
+                    }
+                    // when user input wrong, show error dialog
+                    JOptionPane.showMessageDialog(null, "Wrong Input");
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        } else if (e.getSource() == inputPanel.stayButton) { // stay button click event
+            try {
+                if (new PlayerCanStayValidator(playerList.getPlayer(turnNow)).validate()) {
+                    // finish turn
+                    turnNow = (turnNow + 1) % playerList.getPlayerListSize();
+                    // change the text of remark label
+                    inputPanel.remark.setText(playerList.getPlayer(turnNow).getName() + " turn");
+                } else {
+                    JOptionPane.showMessageDialog(null, "You don't have bridge card.");
+                }
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 }

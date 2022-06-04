@@ -8,20 +8,21 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameController extends Component {
-    private final PlayerController playerController = new PlayerController();
-    private final MapController mapController = new MapController();
+    private PlayerController playerController;
+    private MapController mapController;
     MainFrame gameView;
 
     public void initGame() throws Exception {
-        playerController.initPlayers();
+        mapController = new MapController();
         mapController.initMap();
+
+        playerController = new PlayerController(mapController.getMap());
+        playerController.initPlayers();
+
         gameView = new MainFrame(playerController, mapController);
     }
 
-    public void takeTurn() throws Exception {
-        int moveCount = playerController.chooseAction();
-        if (moveCount > 0) {
-            playerController.inputMovement(moveCount);
-        }
+    public void startGame() throws Exception {
+        mapController.
     }
 }

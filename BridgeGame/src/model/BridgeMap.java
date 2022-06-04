@@ -38,4 +38,13 @@ public class BridgeMap {
     public void setWidth(int width) {
         this.width = width;
     }
+
+    public int getTileIndexByPosition(Position position) {
+        for (int i = 0; i < mapTileList.size(); i++) {
+            if (mapTileList.get(i).getPosition() == position) {
+                return i;
+            }
+        }
+        return 0;
+    }
 }
