@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class PlayerScoreBoardPanel extends JPanel implements PlayerScoreBoardObserver {
+public class PlayerScoreBoardPanel extends JPanel {
     private final ArrayList<JLabel> playerScoreList = new ArrayList<>();
     private final ArrayList<JLabel> bridgeCardList = new ArrayList<>();
 
@@ -65,13 +65,13 @@ public class PlayerScoreBoardPanel extends JPanel implements PlayerScoreBoardObs
         return bridgeNumberLabel;
     }
 
-    @Override
+    // set score of player
     public void setScore(int i, String score) {
         playerScoreList.get(i).setText(score);
     }
 
-    @Override
-    public void setBridgeCardNum(int i, String bridgeCardNum) {
-        bridgeCardList.get(i).setText(bridgeCardNum);
+    // set bridge card number of player
+    public void setBridgeCardNum(int i, int num) {
+        bridgeCardList.get(i).setText("Bridge card : " + num);
     }
 }
