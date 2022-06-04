@@ -35,6 +35,7 @@ public class PlayerController implements ActionListener {
         playerScoreBoardObserver = new PlayerScoreBoardPanel(playerNumber, playerNames);
 
         inputPanel = new InputPanel();
+        inputPanel.setPlayerName(playerList.getPlayer(0).getName());
         inputPanel.setButtonListener(this);
     }
 
