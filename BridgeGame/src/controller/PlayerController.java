@@ -4,22 +4,28 @@ import model.player.Player;
 import model.player.PlayerList;
 import validator.PlayerCanStayValidator;
 import validator.PlayerNumberValidator;
+import view.InputObserver;
+import view.InputPanel;
 import view.PlayerScoreBoardObserver;
 import view.PlayerScoreBoardPanel;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlayerController {
+public class PlayerController implements ActionListener {
     // player list for game
     private PlayerList playerList;
 
     private PlayerScoreBoardObserver playerScoreBoardObserver;
+    private InputPanel inputPanel;
 
     // init players
     public void initPlayers() throws Exception {
         playerList = new PlayerList();
+
         int playerNumber = getPlayerNumberByUserInput();
         setPlayerListByUserInput(playerNumber);
         ArrayList<String> playerNames = new ArrayList<>();
@@ -27,6 +33,9 @@ public class PlayerController {
             playerNames.add(playerList.getPlayer(i).getName());
         }
         playerScoreBoardObserver = new PlayerScoreBoardPanel(playerNumber, playerNames);
+
+        inputPanel = new InputPanel();
+        inputPanel.setButtonListener(this);
     }
 
     public PlayerScoreBoardObserver getPanel() {
@@ -100,5 +109,12 @@ public class PlayerController {
 
     private void alertCannotStay() {
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == inputPanel.moveButton) {
+
+        }
     }
 }

@@ -24,5 +24,6 @@ public class MapPanel extends JPanel implements MapObserver {
     public void move(int currentCell, int nextCell, int playerIndex) {
         JPanel cellNow = cells[currentCell];
         JPanel cellNext = cells[nextCell];
+        // TODO : 움직이는 로직 작성
     }
 }

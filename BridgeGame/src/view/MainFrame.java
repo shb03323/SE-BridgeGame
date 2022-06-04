@@ -2,6 +2,7 @@ package view;
 
 import controller.MapController;
 import controller.PlayerController;
+import controller.GameController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +22,7 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    private void initPanel(PlayerController playerController, MapController mapController) {
+    private void initPanel(PlayerController playerController, MapController mapController, GameController gameController) {
         Container container = this.getContentPane();
 
         // set border layout
@@ -29,6 +30,7 @@ public class MainFrame extends JFrame {
 
         panel.add((Component) playerController.getPanel(), BorderLayout.WEST);
         panel.add((Component) mapController.getPanel(), BorderLayout.CENTER);
+        panel.add((Component) gameController, BorderLayout.SOUTH);
 
         container.add(panel);
     }
