@@ -7,7 +7,6 @@ import validator.PlayerCanStayValidator;
 import validator.PlayerInputValidator;
 import validator.PlayerNumberValidator;
 import view.InputPanel;
-import view.PlayerScoreBoardObserver;
 import view.PlayerScoreBoardPanel;
 
 import javax.swing.*;
@@ -26,7 +25,8 @@ public class PlayerController implements ActionListener {
     // index of the player with the current turn
     private int turnNow;
 
-    private PlayerScoreBoardObserver playerScoreBoardObserver;
+    // views
+    private PlayerScoreBoardPanel playerScoreBoardPanel;
     private InputPanel inputPanel;
 
     public PlayerController(BridgeMap bridgeMap) {
@@ -43,16 +43,18 @@ public class PlayerController implements ActionListener {
         for (int i = 0; i < playerNumber; i++) {
             playerNames.add(playerList.getPlayer(i).getName());
         }
-        playerScoreBoardObserver = new PlayerScoreBoardPanel(playerNumber, playerNames);
+        playerScoreBoardPanel = new PlayerScoreBoardPanel(playerNumber, playerNames);
 
         inputPanel = new InputPanel();
         inputPanel.setPlayerName(playerList.getPlayer(0).getName());
         inputPanel.setButtonListener(this);
     }
 
-    public PlayerScoreBoardObserver getPanel() {
-        return playerScoreBoardObserver;
+    public PlayerScoreBoardPanel getScoreBoardPanel() {
+        return playerScoreBoardPanel;
     }
+
+    public InputPanel getInputPanel() { return inputPanel; }
 
     // get player number and each player name by GUI input
     private int getPlayerNumberByUserInput() throws Exception {

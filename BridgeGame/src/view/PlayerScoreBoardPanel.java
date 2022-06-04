@@ -53,13 +53,13 @@ public class PlayerScoreBoardPanel extends JPanel {
         return new JLabel(imageIcon);
     }
 
-    public JLabel initPlayerScoreLabel(int i) {
+    private JLabel initPlayerScoreLabel(int i) {
         JLabel scoreLabel = playerScoreList.get(i);
         scoreLabel.setHorizontalAlignment(JLabel.CENTER);
         return scoreLabel;
     }
 
-    public JLabel initBridgeCard(int i) {
+    private JLabel initBridgeCard(int i) {
         JLabel bridgeNumberLabel = bridgeCardList.get(i);
         bridgeNumberLabel.setHorizontalAlignment(JLabel.CENTER);
         return bridgeNumberLabel;

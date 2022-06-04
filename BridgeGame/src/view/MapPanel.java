@@ -6,7 +6,7 @@ import model.player.Player;
 import javax.swing.*;
 import java.awt.*;
 
-public class MapPanel extends JPanel implements MapObserver {
+public class MapPanel extends JPanel {
     public JPanel[] cells;
     public MapPanel(int width, int height, int size) {
         this.setPreferredSize(new Dimension(width * 40, height * 40));
@@ -20,7 +20,6 @@ public class MapPanel extends JPanel implements MapObserver {
         }
     }
 
-    @Override
     public void move(int currentCell, int nextCell, int playerIndex) {
         JPanel cellNow = cells[currentCell];
         JPanel cellNext = cells[nextCell];

@@ -28,8 +28,9 @@ public class MainFrame extends JFrame {
         // set border layout
         JPanel panel = new JPanel(new BorderLayout(100, 100));
 
-        panel.add((Component) playerController.getPanel(), BorderLayout.WEST);
-        panel.add((Component) mapController.getPanel(), BorderLayout.CENTER);
+        panel.add(playerController.getScoreBoardPanel(), BorderLayout.WEST);
+        panel.add(mapController.getPanel(), BorderLayout.CENTER);
+        panel.add(playerController.getInputPanel(), BorderLayout.EAST);
 
         container.add(panel);
     }
