@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="&quot;[FEAT] add Players in PlayerScoreBoard&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/card/Card.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/card/HammerCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/card/PhilipsDriverCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/card/SawCard.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +92,7 @@
       <workItem from="1654096150915" duration="11077000" />
       <workItem from="1654145964595" duration="6067000" />
       <workItem from="1654228372890" duration="16000" />
-      <workItem from="1654414562301" duration="18055000" />
+      <workItem from="1654414562301" duration="18572000" />
     </task>
     <servers />
   </component>

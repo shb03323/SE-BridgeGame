@@ -1,10 +1,5 @@
 package model.player;
 
-import jdk.jshell.spi.ExecutionControl;
-import model.card.Card;
-
-import java.util.ArrayList;
-
 public class Player {
     // player's name
     private final String name;
@@ -67,14 +62,5 @@ public class Player {
 
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public void obtainCard(Card card) throws Exception {
-        switch (card.getClass().getSimpleName()) {
-            case "PhilipsDriverCard" -> score += 1;
-            case "HammerCard" -> score += 2;
-            case "SawCard" -> score += 3;
-            default -> throw new Exception("There are no such cards in this game.");
-        }
     }
 }

@@ -44,6 +44,12 @@ public class PlayerController {
 
     public InputPanel getInputPanel() { return inputPanel; }
 
+    // system roll the dice
+    public int rollTheDice() {
+        Random random = new Random();
+        return random.nextInt(1, 7);
+    }
+
     // get player number and each player name by GUI input
     private int getPlayerNumberByUserInput() throws Exception {
         int result;
@@ -65,11 +71,5 @@ public class PlayerController {
             String playerName = (String) JOptionPane.showInputDialog(null, "Input player " + i + "'s name", null, JOptionPane.PLAIN_MESSAGE, null, null, null);
             playerList.addPlayer(new Player(playerName));
         }
-    }
-
-    // system roll the dice
-    public int rollTheDice() {
-        Random random = new Random();
-        return random.nextInt(1, 7);
     }
 }

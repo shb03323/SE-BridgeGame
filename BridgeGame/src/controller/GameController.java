@@ -34,6 +34,19 @@ public class GameController implements ActionListener {
         gameView = new MainFrame(playerController, mapController);
     }
 
+    private void addScore(int playerIndex, int tileIndex) {
+        int score;
+        char tileName = mapController.getMap().getMapTileList().get(tileIndex).getTileName();
+        switch (tileName) {
+            case 'P' -> score = 1;
+            case 'H' -> score = 2;
+            case 'S' -> score = 3;
+            default -> score = 0;
+        }
+
+        playerController.getPlayerList().getPlayer(playerIndex).addScore(score);
+    }
+
     /**
      * Roll : show input text field and player can input the string in it.
      * Stay : player can stay and finish turn.
@@ -52,6 +65,7 @@ public class GameController implements ActionListener {
                         playerController.getPlayerList().getPlayer(turnNow).setCellNow(playerInputValidator.getTileIndex());
                         // move player icon on map
                         mapController.setCharacter(playerInputValidator.getTileIndex(), turnNow);
+                        addScore(turnNow, playerInputValidator.getTileIndex());
                         // finish turn
                         turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
                         // change the text of remark label
