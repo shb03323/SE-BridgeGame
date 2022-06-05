@@ -51,8 +51,7 @@ public class GameController implements ActionListener {
                     if (playerInputValidator.validate()) {
                         playerController.getPlayerList().getPlayer(turnNow).setCellNow(playerInputValidator.getTileIndex());
                         // move player icon on map
-                        mapController.getPanel().add(mapController.drawCell(cellNow), cellNow);
-                        mapController.getPanel().add(mapController.drawCharacter(playerInputValidator.getTileIndex(), turnNow));
+                        mapController.setCharacter(playerInputValidator.getTileIndex(), turnNow);
                         // finish turn
                         turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
                         // change the text of remark label

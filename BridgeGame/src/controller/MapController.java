@@ -109,44 +109,18 @@ public class MapController {
     public void initCharacter(int playerNum) {
         for (int i = 0; i < playerNum; i++) {
             JPanel panel = new JPanel();
-            panel.add(new ImageLabel("player" + (i + 1), 30));
+            panel.add(new ImageLabel("Player" + (i + 1), 20));
             panel.setName("player" + i);
-            panel.setBounds((bridgeMap.getMapTileList().get(0).getPosition().x() - 1) * blockSize + i * blockSize / 2, (bridgeMap.getMapTileList().get(0).getPosition().y() + 1) * blockSize, blockSize, blockSize);
-            panel.setVisible(true);
-            mapView.add(panel);
+            panel.setBounds((bridgeMap.getMapTileList().get(0).getPosition().x() - 1) * blockSize + i * blockSize / 2, (bridgeMap.getMapTileList().get(0).getPosition().y() + 1) * blockSize, blockSize - 10, blockSize - 10);
+            panel.setBackground(new Color(155, 188, 212));
+            Util.changePanelWithBorder(panel);
+            mapView.add(panel, i);
         }
     }
 
     public void setCharacter(int i, int playerIndex) {
-        JPanel panel = new JPanel();
-    }
-
-    public JPanel drawCharacter(int i, int playerIndex) {
-        JPanel panel = new JPanel();
+        JPanel panel = (JPanel) mapView.getComponent(playerIndex);
         Tile tile = bridgeMap.getMapTileList().get(i);
-        int blockSize = 40;
-
-        if (tile.getTileName() == 'B') {
-            panel.setLayout(new GridLayout(1, 2));
-
-            JPanel cross = new JPanel();
-            cross.add(new ImageLabel("Player" + (playerIndex + 1), 30));
-            cross.setBackground(new Color(255, 226, 143));
-            Util.changePanelWithBorder(cross);
-            panel.add(cross);
-
-            JPanel bridge = new JPanel();
-            bridge.add(new ImageLabel("Bridge", 40));
-            panel.add(bridge);
-
-            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize * 2, blockSize);
-        } else {
-            panel.add(new ImageLabel("Player" + (playerIndex + 1), 30));
-            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
-            panel.setBackground(new Color(255, 226, 143));
-            Util.changePanelWithBorder(panel);
-        }
-
-        return panel;
+        panel.setBounds(tile.getPosition().x() * blockSize + 5, tile.getPosition().y() * blockSize + 5, blockSize - 10, blockSize - 10);
     }
 }
