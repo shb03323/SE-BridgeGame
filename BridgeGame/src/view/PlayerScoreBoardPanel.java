@@ -12,7 +12,7 @@ public class PlayerScoreBoardPanel extends JPanel {
 
     // Set players score board, must input player number.
     public PlayerScoreBoardPanel(int playerNum, ArrayList<String> playerNames) {
-        this.setPreferredSize(new Dimension(100, 1000));
+        this.setBounds(0, 0, 100, 1000);
         this.setLayout(new GridLayout(playerNum, 0));
 
         for (int i = 0; i < playerNum; i++) {

@@ -6,11 +6,13 @@ import java.awt.event.ActionListener;
 
 public class InputPanel extends JPanel {
     public JLabel remark = new JLabel("Player turn");
-    public JButton rollButton = new JButton("Rove");
+    public JButton rollButton = new JButton("Roll");
     public JButton stayButton = new JButton("Stay");
 
     public InputPanel() {
-        this.setLayout(new GridLayout(1, 3));
+        this.setBounds(800, 800, 200, 100);
+        this.setLayout(new GridLayout(3, 1));
+        remark.setHorizontalAlignment(JLabel.CENTER);
         this.add(remark);
         this.add(rollButton);
         this.add(stayButton);

@@ -49,9 +49,11 @@ public class PlayerInputValidator extends Validator{
             } else if (tile.getPreviousDirection() == input.charAt(i)) {
                 tileIndex--;
             } else {
-                // allow to go right when player is on 'B' tile
+                // allow going right when player is on 'B' tile
                 if (tile.getTileName() == 'B' && input.charAt(i) == 'R') {
                     tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() + 2, tile.getPosition().y()));
+                } else if (tile.getTileName() == 'b' && input.charAt(i) == 'L') {
+                    tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() - 2, tile.getPosition().y()));
                 } else {
                     return false;
                 }

@@ -93,10 +93,41 @@ public class MapController {
 
             panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize * 2,  blockSize);
         } else {
+//            JPanel newPanel = new JPanel();
+//            panel.add(new JPanel(255, 226, 143));
             panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
         }
 
         if (tile.getTileName() != 'B') {
+            panel.setBackground(new Color(255, 226, 143));
+            Util.changePanelWithBorder(panel);
+        }
+
+        return panel;
+    }
+
+    public JPanel drawCharacter(int i, int playerIndex) {
+        JPanel panel = new JPanel();
+        Tile tile = bridgeMap.getMapTileList().get(i);
+        int blockSize = 40;
+
+        if (tile.getTileName() == 'B') {
+            panel.setLayout(new GridLayout(1, 2));
+
+            JPanel cross = new JPanel();
+            cross.add(new ImageLabel("Player" + (playerIndex + 1), 30));
+            cross.setBackground(new Color(255, 226, 143));
+            Util.changePanelWithBorder(cross);
+            panel.add(cross);
+
+            JPanel bridge = new JPanel();
+            bridge.add(new ImageLabel("Bridge", 40));
+            panel.add(bridge);
+
+            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize * 2, blockSize);
+        } else {
+            panel.add(new ImageLabel("Player" + (playerIndex + 1), 30));
+            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
             panel.setBackground(new Color(255, 226, 143));
             Util.changePanelWithBorder(panel);
         }

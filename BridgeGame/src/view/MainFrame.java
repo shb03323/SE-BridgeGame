@@ -25,12 +25,13 @@ public class MainFrame extends JFrame {
     private void initPanel(PlayerController playerController, MapController mapController) {
         Container container = this.getContentPane();
 
-        // set border layout
-        JPanel panel = new JPanel(new BorderLayout(100, 100));
+        // set layout
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
 
-        panel.add(playerController.getScoreBoardPanel(), BorderLayout.WEST);
-        panel.add(mapController.getPanel(), BorderLayout.CENTER);
-        panel.add(playerController.getInputPanel(), BorderLayout.EAST);
+        panel.add(playerController.getScoreBoardPanel());
+        panel.add(mapController.getPanel());
+        panel.add(playerController.getInputPanel());
 
         container.add(panel);
     }

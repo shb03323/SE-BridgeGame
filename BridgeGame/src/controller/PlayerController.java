@@ -1,6 +1,5 @@
 package controller;
 
-import model.BridgeMap;
 import model.player.Player;
 import model.player.PlayerList;
 import validator.PlayerNumberValidator;

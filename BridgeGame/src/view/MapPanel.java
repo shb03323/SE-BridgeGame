@@ -9,7 +9,7 @@ import java.awt.*;
 public class MapPanel extends JPanel {
     public JPanel[] cells;
     public MapPanel(int width, int height, int size) {
-        this.setPreferredSize(new Dimension(width * 40, height * 40));
+        this.setBounds(150, 100, 850, 700);
         this.setLayout(null);
         cells = new JPanel[size];
 

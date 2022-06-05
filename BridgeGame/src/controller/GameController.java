@@ -2,7 +2,6 @@ package controller;
 
 import validator.PlayerCanStayValidator;
 import validator.PlayerInputValidator;
-import validator.PlayerNumberValidator;
 import view.ImageLabel;
 import view.MainFrame;
 import view.PlayerScoreBoardPanel;
@@ -30,13 +29,12 @@ public class GameController implements ActionListener {
 
         // set players in start cell
         for (int i = 0; i < playerController.getPlayerList().getPlayerListSize(); i++) {
-            mapController.getPanel().cells[0].add("player1", new ImageLabel("player" + i, 30));
+            ImageLabel imageLabel = new ImageLabel("player" + (i + 1), 30);
+            imageLabel.setName("player" + i);
+            mapController.getPanel().cells[0].add(imageLabel);
         }
 
         gameView = new MainFrame(playerController, mapController);
-    }
-
-    public void startGame() throws Exception {
     }
 
     /**
@@ -47,13 +45,17 @@ public class GameController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // when click Roll button, set up user input popup
         if (e.getSource() == playerController.getInputPanel().rollButton) {
+            int diceNum = playerController.rollTheDice();
             while (true) {
-                int diceNum = playerController.rollTheDice();
                 String userInput = (String) JOptionPane.showInputDialog(null, "Dice number is " + diceNum, "Input Dialog", JOptionPane.PLAIN_MESSAGE, null, null, null);
                 try {
-                    PlayerInputValidator playerInputValidator = new PlayerInputValidator(userInput, diceNum, mapController.getMap(), turnNow);
+                    int cellNow = playerController.getPlayerList().getPlayer(turnNow).getCellNow();
+                    PlayerInputValidator playerInputValidator = new PlayerInputValidator(userInput, diceNum, mapController.getMap(), cellNow);
                     if (playerInputValidator.validate()) {
                         playerController.getPlayerList().getPlayer(turnNow).setCellNow(playerInputValidator.getTileIndex());
+                        // move player icon on map
+                        mapController.getPanel().add(mapController.drawCell(cellNow), cellNow);
+                        mapController.getPanel().add(mapController.drawCharacter(playerInputValidator.getTileIndex(), turnNow));
                         // finish turn
                         turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
                         // change the text of remark label
