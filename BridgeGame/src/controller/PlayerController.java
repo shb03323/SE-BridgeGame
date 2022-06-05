@@ -10,28 +10,16 @@ import view.InputPanel;
 import view.PlayerScoreBoardPanel;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlayerController implements ActionListener {
+public class PlayerController {
     // player list for game
     private PlayerList playerList;
-
-    // map for game
-    private BridgeMap bridgeMap;
-
-    // index of the player with the current turn
-    private int turnNow;
 
     // views
     private PlayerScoreBoardPanel playerScoreBoardPanel;
     private InputPanel inputPanel;
-
-    public PlayerController(BridgeMap bridgeMap) {
-        this.bridgeMap = bridgeMap;
-    }
 
     // init players
     public void initPlayers() throws Exception {
@@ -47,7 +35,10 @@ public class PlayerController implements ActionListener {
 
         inputPanel = new InputPanel();
         inputPanel.setPlayerName(playerList.getPlayer(0).getName());
-        inputPanel.setButtonListener(this);
+    }
+
+    public PlayerList getPlayerList() {
+        return playerList;
     }
 
     public PlayerScoreBoardPanel getScoreBoardPanel() {
@@ -80,51 +71,8 @@ public class PlayerController implements ActionListener {
     }
 
     // system roll the dice
-    private int rollTheDice() {
+    public int rollTheDice() {
         Random random = new Random();
         return random.nextInt(1, 7);
-    }
-
-    /**
-     * Roll : show input text field and player can input the string in it.
-     * Stay : player can stay and finish turn.
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // when click Roll button, set up user input popup
-        if (e.getSource() == inputPanel.rollButton) {
-            while (true) {
-                int diceNum = rollTheDice();
-                String userInput = (String) JOptionPane.showInputDialog(null, "Dice number is " + diceNum, "Input Dialog", JOptionPane.PLAIN_MESSAGE, null, null, null);
-                try {
-                    PlayerInputValidator playerInputValidator = new PlayerInputValidator(userInput, diceNum, bridgeMap, turnNow);
-                    if (playerInputValidator.validate()) {
-                        playerList.getPlayer(turnNow).setCellNow(playerInputValidator.getTileIndex());
-                        // finish turn
-                        turnNow = (turnNow + 1) % playerList.getPlayerListSize();
-                        // change the text of remark label
-                        inputPanel.setPlayerName(playerList.getPlayer(turnNow).getName());
-                        break;
-                    }
-                    // when user input wrong, show error dialog
-                    JOptionPane.showMessageDialog(null, "Wrong Input");
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        } else if (e.getSource() == inputPanel.stayButton) { // stay button click event
-            try {
-                if (new PlayerCanStayValidator(playerList.getPlayer(turnNow)).validate()) {
-                    // finish turn
-                    turnNow = (turnNow + 1) % playerList.getPlayerListSize();
-                    // change the text of remark label
-                    inputPanel.setPlayerName(playerList.getPlayer(turnNow).getName());
-                } else {
-                    JOptionPane.showMessageDialog(null, "You don't have bridge card.");
-                }
-            } catch (Exception ex) {
-                throw new RuntimeException(ex);
-            }
-        }
     }
 }

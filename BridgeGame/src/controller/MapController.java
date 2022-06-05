@@ -4,7 +4,6 @@ import model.BridgeMap;
 import model.Tile;
 import validator.MapValidator;
 import view.ImageLabel;
-import view.MapObserver;
 import view.MapPanel;
 import view.utils.Util;
 
