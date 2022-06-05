@@ -41,7 +41,7 @@ public class BridgeMap {
 
     public int getTileIndexByPosition(Position position) {
         for (int i = 0; i < mapTileList.size(); i++) {
-            if (mapTileList.get(i).getPosition() == position) {
+            if (mapTileList.get(i).getPosition().equals(position)) {
                 return i;
             }
         }

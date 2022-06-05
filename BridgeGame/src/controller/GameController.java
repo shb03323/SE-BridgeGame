@@ -1,13 +1,11 @@
 package controller;
 
+import model.Tile;
 import validator.PlayerCanStayValidator;
 import validator.PlayerInputValidator;
-import view.ImageLabel;
 import view.MainFrame;
-import view.PlayerScoreBoardPanel;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,8 +27,7 @@ public class GameController implements ActionListener {
 
         // set players in start cell
         mapController.initCharacter(playerController.getPlayerList().getPlayerListSize());
-        System.out.println(mapController.getPanel().getComponent(0).getBounds());
-        System.out.println(mapController.getPanel().getComponent(64).getBounds());
+
         gameView = new MainFrame(playerController, mapController);
     }
 
@@ -45,6 +42,12 @@ public class GameController implements ActionListener {
         }
 
         playerController.getPlayerList().getPlayer(playerIndex).addScore(score);
+        playerController.getScoreBoardPanel().setScore(playerIndex, score);
+    }
+
+    private void addBridgeCardNum(int playerIndex, int num) {
+        playerController.getPlayerList().getPlayer(playerIndex).obtainBridgeCard(num);
+        playerController.getScoreBoardPanel().setBridgeCardNum(playerIndex, playerController.getPlayerList().getPlayer(playerIndex).getBridgeCardNum());
     }
 
     /**
@@ -56,16 +59,18 @@ public class GameController implements ActionListener {
         // when click Roll button, set up user input popup
         if (e.getSource() == playerController.getInputPanel().rollButton) {
             int diceNum = playerController.rollTheDice();
+            int bridgeCardNum = playerController.getPlayerList().getPlayer(turnNow).getBridgeCardNum();
             while (true) {
-                String userInput = (String) JOptionPane.showInputDialog(null, "Dice number is " + diceNum, "Input Dialog", JOptionPane.PLAIN_MESSAGE, null, null, null);
+                String userInput = (String) JOptionPane.showInputDialog(null, "Dice number is " + diceNum + "\nBridge card number is " + bridgeCardNum, "Input Dialog", JOptionPane.PLAIN_MESSAGE, null, null, null);
                 try {
                     int cellNow = playerController.getPlayerList().getPlayer(turnNow).getCellNow();
-                    PlayerInputValidator playerInputValidator = new PlayerInputValidator(userInput, diceNum, mapController.getMap(), cellNow);
+                    PlayerInputValidator playerInputValidator = new PlayerInputValidator(userInput, diceNum, bridgeCardNum, mapController.getMap(), cellNow);
                     if (playerInputValidator.validate()) {
                         playerController.getPlayerList().getPlayer(turnNow).setCellNow(playerInputValidator.getTileIndex());
                         // move player icon on map
                         mapController.setCharacter(playerInputValidator.getTileIndex(), turnNow);
                         addScore(turnNow, playerInputValidator.getTileIndex());
+                        addBridgeCardNum(turnNow, playerInputValidator.getBridgeCardNum());
                         // finish turn
                         turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
                         // change the text of remark label
@@ -81,6 +86,8 @@ public class GameController implements ActionListener {
         } else if (e.getSource() == playerController.getInputPanel().stayButton) { // stay button click event
             try {
                 if (new PlayerCanStayValidator(playerController.getPlayerList().getPlayer(turnNow)).validate()) {
+                    // use bridge card
+                    playerController.getPlayerList().getPlayer(turnNow).useBridgeCard();
                     // finish turn
                     turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
                     // change the text of remark label

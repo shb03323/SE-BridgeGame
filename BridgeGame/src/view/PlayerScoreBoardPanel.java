@@ -66,8 +66,8 @@ public class PlayerScoreBoardPanel extends JPanel {
     }
 
     // set score of player
-    public void setScore(int i, String score) {
-        playerScoreList.get(i).setText(score);
+    public void setScore(int i, int score) {
+        playerScoreList.get(i).setText("Score : " + score);
     }
 
     // set bridge card number of player

@@ -65,14 +65,17 @@ public class MapValidator extends Validator {
         // make the tile
         Tile tile;
         if (bridgeMap.getMapTileList().isEmpty()) {
+            // start tile
             if (inputString.charAt(0) != 'S') {
                 return false;
             }
             tile = new Tile(inputString.charAt(0), new Position(1, 0), inputString.charAt(1), null);
         } else {
+            // end tile
             if (inputString.charAt(0) == 'E') {
                 tile = new Tile(inputString.charAt(0), getPresentgetPosition(), null, null);
             } else {
+                // other tiles
                 tile = new Tile(inputString.charAt(0), getPresentgetPosition(), inputString.charAt(2), inputString.charAt(1));
 
                 // check if tile direction is valid

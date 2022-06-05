@@ -36,8 +36,8 @@ public class Player {
         this.score += score;
     }
 
-    public void obtainBridgeCard() {
-        bridgeCardNum++;
+    public void obtainBridgeCard(int num) {
+        bridgeCardNum += num;
     }
 
     public void useBridgeCard() {

@@ -11,15 +11,19 @@ public class PlayerInputValidator extends Validator{
     // dice number
     private int diceNumber;
 
+    // bridge card number
+    private int bridgeCardNum;
+
     // map information
     private final BridgeMap bridgeMap;
 
     // index of tile
     private int tileIndex;
 
-    public PlayerInputValidator(String input, int diceNumber, BridgeMap bridgeMap, int tileIndex) {
+    public PlayerInputValidator(String input, int diceNumber, int bridgeCardNum, BridgeMap bridgeMap, int tileIndex) {
         this.input = input.replaceAll(" ", "").toUpperCase();
         this.diceNumber = diceNumber;
+        this.bridgeCardNum = bridgeCardNum;
         this.bridgeMap = bridgeMap;
         this.tileIndex = tileIndex;
     }
@@ -33,15 +37,21 @@ public class PlayerInputValidator extends Validator{
         return tileIndex;
     }
 
+    public int getBridgeCardNum() { return bridgeCardNum; }
+
     // check diceNumber and input string's length is match
     private boolean checkInputLength() {
-        return diceNumber == input.length();
+        if (diceNumber - bridgeCardNum <= 0) {
+            return input.length() == 0;
+        } else {
+            return input.length() == diceNumber - bridgeCardNum;
+        }
     }
 
     // check the player input right direction.
     private boolean checkDirection() {
         int i = 0;
-        while (i < diceNumber) {
+        while (i < diceNumber - bridgeCardNum) {
             Tile tile = bridgeMap.getMapTileList().get(tileIndex);
             // check tile's next direction or previous direction and input is matching
             if (tile.getNextDirection() == input.charAt(i)) {
@@ -52,8 +62,10 @@ public class PlayerInputValidator extends Validator{
                 // allow going right when player is on 'B' tile
                 if (tile.getTileName() == 'B' && input.charAt(i) == 'R') {
                     tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() + 2, tile.getPosition().y()));
+                    bridgeCardNum++;
                 } else if (tile.getTileName() == 'b' && input.charAt(i) == 'L') {
                     tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() - 2, tile.getPosition().y()));
+                    bridgeCardNum++;
                 } else {
                     return false;
                 }
