@@ -64,8 +64,10 @@ public class MapController {
         int blockSize = 40;
 
         if (i == 0) {
+            panel.add(new JLabel("START"));
             panel.setBounds((tile.getPosition().x() - 1) * blockSize, tile.getPosition().y() * blockSize,blockSize * 2, blockSize * 2);
         } else if (i == bridgeMap.getMapTileList().size() - 1) {
+            panel.add(new JLabel("END"));
             panel.setBounds(tile.getPosition().x() * blockSize, (tile.getPosition().y() - 1) * blockSize,blockSize * 2, blockSize * 2);
         } else if (tile.getTileName() == 'S') {
             panel.add(new ImageLabel("Saw", 30));

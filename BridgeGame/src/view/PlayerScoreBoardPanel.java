@@ -48,7 +48,7 @@ public class PlayerScoreBoardPanel extends JPanel {
 
     private JLabel initPlayerIconLabel(int i) {
         String currentWorkingDirectory = System.getProperty("user.dir");
-        ImageIcon imageIcon = new ImageIcon(currentWorkingDirectory + "/src/assets/tile/Player" + (i + 1) + ".png");
+        ImageIcon imageIcon = new ImageIcon(currentWorkingDirectory + "/src/assets/tile/Player" + (i + 1) + ".PNG");
         imageIcon = Util.setIconSize(imageIcon, 40);
         return new JLabel(imageIcon);
     }

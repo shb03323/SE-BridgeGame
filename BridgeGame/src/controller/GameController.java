@@ -3,6 +3,7 @@ package controller;
 import validator.PlayerCanStayValidator;
 import validator.PlayerInputValidator;
 import validator.PlayerNumberValidator;
+import view.ImageLabel;
 import view.MainFrame;
 import view.PlayerScoreBoardPanel;
 
@@ -25,6 +26,12 @@ public class GameController implements ActionListener {
 
         playerController = new PlayerController();
         playerController.initPlayers();
+        playerController.getInputPanel().setButtonListener(this);
+
+        // set players in start cell
+        for (int i = 0; i < playerController.getPlayerList().getPlayerListSize(); i++) {
+            mapController.getPanel().cells[0].add("player1", new ImageLabel("player" + i, 30));
+        }
 
         gameView = new MainFrame(playerController, mapController);
     }

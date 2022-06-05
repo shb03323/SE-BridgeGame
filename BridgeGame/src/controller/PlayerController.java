@@ -3,8 +3,6 @@ package controller;
 import model.BridgeMap;
 import model.player.Player;
 import model.player.PlayerList;
-import validator.PlayerCanStayValidator;
-import validator.PlayerInputValidator;
 import validator.PlayerNumberValidator;
 import view.InputPanel;
 import view.PlayerScoreBoardPanel;
