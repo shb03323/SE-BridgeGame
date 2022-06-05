@@ -20,6 +20,9 @@ public class MapController {
     // map view
     private MapPanel mapView;
 
+    // block size
+    private int blockSize = 40;
+
     public void initMap() throws Exception {
         // FIXME : you can change the map in here.
         bridgeMap = new BridgeMap("default.map");
@@ -61,7 +64,6 @@ public class MapController {
     public JPanel drawCell(int i) {
         JPanel panel = new JPanel();
         Tile tile = bridgeMap.getMapTileList().get(i);
-        int blockSize = 40;
 
         if (i == 0) {
             panel.add(new JLabel("START"));
@@ -93,8 +95,6 @@ public class MapController {
 
             panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize * 2,  blockSize);
         } else {
-//            JPanel newPanel = new JPanel();
-//            panel.add(new JPanel(255, 226, 143));
             panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
         }
 
@@ -104,6 +104,21 @@ public class MapController {
         }
 
         return panel;
+    }
+
+    public void initCharacter(int playerNum) {
+        for (int i = 0; i < playerNum; i++) {
+            JPanel panel = new JPanel();
+            panel.add(new ImageLabel("player" + (i + 1), 30));
+            panel.setName("player" + i);
+            panel.setBounds((bridgeMap.getMapTileList().get(0).getPosition().x() - 1) * blockSize + i * blockSize / 2, (bridgeMap.getMapTileList().get(0).getPosition().y() + 1) * blockSize, blockSize, blockSize);
+            panel.setVisible(true);
+            mapView.add(panel);
+        }
+    }
+
+    public void setCharacter(int i, int playerIndex) {
+        JPanel panel = new JPanel();
     }
 
     public JPanel drawCharacter(int i, int playerIndex) {

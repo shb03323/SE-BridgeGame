@@ -28,12 +28,9 @@ public class GameController implements ActionListener {
         playerController.getInputPanel().setButtonListener(this);
 
         // set players in start cell
-        for (int i = 0; i < playerController.getPlayerList().getPlayerListSize(); i++) {
-            ImageLabel imageLabel = new ImageLabel("player" + (i + 1), 30);
-            imageLabel.setName("player" + i);
-            mapController.getPanel().cells[0].add(imageLabel);
-        }
-
+        mapController.initCharacter(playerController.getPlayerList().getPlayerListSize());
+        System.out.println(mapController.getPanel().getComponent(0).getBounds());
+        System.out.println(mapController.getPanel().getComponent(64).getBounds());
         gameView = new MainFrame(playerController, mapController);
     }
 

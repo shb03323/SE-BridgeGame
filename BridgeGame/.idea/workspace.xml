@@ -5,12 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/validator/PlayerInputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/validator/PlayerInputValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/InputPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/InputPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MapPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MapPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/PlayerScoreBoardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PlayerScoreBoardPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +89,7 @@
       <workItem from="1654096150915" duration="11077000" />
       <workItem from="1654145964595" duration="6067000" />
       <workItem from="1654228372890" duration="16000" />
-      <workItem from="1654414562301" duration="13984000" />
+      <workItem from="1654414562301" duration="16154000" />
     </task>
     <servers />
   </component>
