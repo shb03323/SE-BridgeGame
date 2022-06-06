@@ -2,7 +2,6 @@ package view;
 
 import controller.MapController;
 import controller.PlayerController;
-import controller.GameController;
 
 import javax.swing.*;
 import java.awt.*;

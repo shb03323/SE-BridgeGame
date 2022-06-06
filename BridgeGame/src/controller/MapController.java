@@ -31,7 +31,7 @@ public class MapController {
         String[] mapNames = dir.list();
 
         String mapName = (String) JOptionPane.showInputDialog(null, "Choose the map", null, JOptionPane.PLAIN_MESSAGE, null, mapNames, "default.map");
-        bridgeMap = new BridgeMap(mapName);
+        bridgeMap = new BridgeMap();
 
         // load map
         FileReader fReader = null;
