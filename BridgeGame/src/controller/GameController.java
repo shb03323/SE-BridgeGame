@@ -106,7 +106,7 @@ public class GameController implements ActionListener {
                         // move player icon on map
                         mapController.setCharacter(playerInputValidator.getTileIndex(), turnNow);
                         addScore(turnNow, playerInputValidator.getTileIndex());
-                        addBridgeCardNum(turnNow, playerInputValidator.getBridgeCardNum());
+                        addBridgeCardNum(turnNow, playerInputValidator.getAddedBridgeCardNum());
                         // finish player
                         finishPlayer();
                         // change turn

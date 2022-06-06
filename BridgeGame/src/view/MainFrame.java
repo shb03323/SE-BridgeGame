@@ -17,7 +17,7 @@ public class MainFrame extends JFrame {
     }
 
     private void setWindow() {
-        setSize(1000, 1000);
+        setSize(1035, 1035);
         setLocationRelativeTo(null);
         setVisible(true);
     }

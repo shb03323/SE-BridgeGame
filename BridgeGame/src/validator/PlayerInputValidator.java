@@ -14,6 +14,9 @@ public class PlayerInputValidator extends Validator{
     // bridge card number
     private int bridgeCardNum;
 
+    // bridgeCardNum of now
+    int addedBridgeCardNum = 0;
+
     // map information
     private final BridgeMap bridgeMap;
 
@@ -37,7 +40,7 @@ public class PlayerInputValidator extends Validator{
         return tileIndex;
     }
 
-    public int getBridgeCardNum() { return bridgeCardNum; }
+    public int getAddedBridgeCardNum() { return addedBridgeCardNum; }
 
     // check diceNumber and input string's length is match
     private boolean checkInputLength() {
@@ -51,7 +54,6 @@ public class PlayerInputValidator extends Validator{
     // check the player input right direction.
     private boolean checkDirection() {
         int i = 0;
-        int tempBridgeCardNum = bridgeCardNum;
         while (i < diceNumber - bridgeCardNum) {
             Tile tile = bridgeMap.getMapTileList().get(tileIndex);
 
@@ -69,17 +71,16 @@ public class PlayerInputValidator extends Validator{
                 // allow going right when player is on 'B' tile
                 if (tile.getTileName() == 'B' && input.charAt(i) == 'R') {
                     tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() + 2, tile.getPosition().y()));
-                    tempBridgeCardNum++;
+                    addedBridgeCardNum++;
                 } else if (tile.getTileName() == 'b' && input.charAt(i) == 'L') {
                     tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() - 2, tile.getPosition().y()));
-                    tempBridgeCardNum++;
+                    addedBridgeCardNum++;
                 } else {
                     return false;
                 }
             }
             i++;
         }
-        bridgeCardNum = tempBridgeCardNum;
         return true;
     }
 }
