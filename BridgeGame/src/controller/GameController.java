@@ -50,6 +50,12 @@ public class GameController implements ActionListener {
         playerController.getScoreBoardPanel().setBridgeCardNum(playerIndex, playerController.getPlayerList().getPlayer(playerIndex).getBridgeCardNum());
     }
 
+    private void useBridgeCard(int playerIndex) {
+        playerController.getPlayerList().getPlayer(playerIndex).useBridgeCard();
+        int bridgeCardNum = playerController.getPlayerList().getPlayer(playerIndex).getBridgeCardNum();
+        playerController.getScoreBoardPanel().setBridgeCardNum(playerIndex, bridgeCardNum);
+    }
+
     /**
      * Roll : show input text field and player can input the string in it.
      * Stay : player can stay and finish turn.
@@ -87,7 +93,7 @@ public class GameController implements ActionListener {
             try {
                 if (new PlayerCanStayValidator(playerController.getPlayerList().getPlayer(turnNow)).validate()) {
                     // use bridge card
-                    playerController.getPlayerList().getPlayer(turnNow).useBridgeCard();
+                    useBridgeCard(turnNow);
                     // finish turn
                     turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
                     // change the text of remark label
