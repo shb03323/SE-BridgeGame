@@ -72,19 +72,19 @@ public class MapController {
 
         if (i == 0) {
             panel.add(new JLabel("START"));
-            panel.setBounds((tile.getPosition().x() - 1) * blockSize, tile.getPosition().y() * blockSize,blockSize * 2, blockSize * 2);
+            panel.setBounds((tile.getPoint().x - 1) * blockSize, tile.getPoint().y * blockSize,blockSize * 2, blockSize * 2);
         } else if (i == bridgeMap.getMapTileList().size() - 1) {
             panel.add(new JLabel("END"));
-            panel.setBounds(tile.getPosition().x() * blockSize, (tile.getPosition().y() - 1) * blockSize,blockSize * 2, blockSize * 2);
+            panel.setBounds(tile.getPoint().x * blockSize, (tile.getPoint().y - 1) * blockSize,blockSize * 2, blockSize * 2);
         } else if (tile.getTileName() == 'S') {
             panel.add(new ImageLabel("Saw", 30));
-            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
+            panel.setBounds(tile.getPoint().x * blockSize, tile.getPoint().y * blockSize, blockSize,  blockSize);
         } else if (tile.getTileName() == 'H') {
             panel.add(new ImageLabel("Hammer", 30));
-            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
+            panel.setBounds(tile.getPoint().x * blockSize, tile.getPoint().y * blockSize, blockSize,  blockSize);
         } else if (tile.getTileName() == 'P') {
             panel.add(new ImageLabel("PhilipsDriver", 30));
-            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
+            panel.setBounds(tile.getPoint().x * blockSize, tile.getPoint().y * blockSize, blockSize,  blockSize);
         } else if (tile.getTileName() == 'B') {
             panel.setLayout(new GridLayout(1, 2));
 
@@ -98,9 +98,9 @@ public class MapController {
             bridge.add(new ImageLabel("Bridge", 40));
             panel.add(bridge);
 
-            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize * 2,  blockSize);
+            panel.setBounds(tile.getPoint().x * blockSize, tile.getPoint().y * blockSize, blockSize * 2,  blockSize);
         } else {
-            panel.setBounds(tile.getPosition().x() * blockSize, tile.getPosition().y() * blockSize, blockSize,  blockSize);
+            panel.setBounds(tile.getPoint().x * blockSize, tile.getPoint().y * blockSize, blockSize,  blockSize);
         }
 
         if (tile.getTileName() != 'B') {
@@ -116,7 +116,7 @@ public class MapController {
             JPanel panel = new JPanel();
             panel.add(new ImageLabel("Player" + (i + 1), 20));
             panel.setName("player" + i);
-            panel.setBounds((bridgeMap.getMapTileList().get(0).getPosition().x() - 1) * blockSize + i * blockSize / 2, (bridgeMap.getMapTileList().get(0).getPosition().y() + 1) * blockSize, blockSize - 10, blockSize - 10);
+            panel.setBounds((bridgeMap.getMapTileList().get(0).getPoint().x - 1) * blockSize + i * blockSize / 2, (bridgeMap.getMapTileList().get(0).getPoint().y + 1) * blockSize, blockSize - 10, blockSize - 10);
             panel.setBackground(new Color(155, 188, 212));
             Util.changePanelWithBorder(panel);
             mapView.add(panel, i);
@@ -126,6 +126,6 @@ public class MapController {
     public void setCharacter(int i, int playerIndex) {
         JPanel panel = (JPanel) mapView.getComponent(playerIndex);
         Tile tile = bridgeMap.getMapTileList().get(i);
-        panel.setBounds(tile.getPosition().x() * blockSize + 5, tile.getPosition().y() * blockSize + 5, blockSize - 10, blockSize - 10);
+        panel.setBounds(tile.getPoint().x * blockSize + playerIndex * 5, tile.getPoint().y * blockSize + 5, blockSize - 10, blockSize - 10);
     }
 }

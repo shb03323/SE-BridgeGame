@@ -1,16 +1,16 @@
 package validator;
 
 import model.BridgeMap;
-import model.Position;
 import model.Tile;
 
+import java.awt.*;
 import java.io.BufferedReader;
 
 public class MapValidator extends Validator {
     private final BridgeMap bridgeMap;
     private final BufferedReader reader;
 
-    // map's maximum and minimum position of x, y
+    // map's maximum and minimum point of x, y
     private int maxX = 0;
     private int minX = 0;
     private int maxY = 0;
@@ -43,7 +43,7 @@ public class MapValidator extends Validator {
         bridgeMap.setHeight(maxY - minY);
 
         for (Tile tile : bridgeMap.getMapTileList()) {
-            tile.setPosition(new Position(tile.getPosition().x() - minX + 1, tile.getPosition().y() - minY + 1));
+            tile.setPoint(new Point(tile.getPoint().x - minX + 1, tile.getPoint().y - minY + 1));
         }
         return true;
     }
@@ -69,14 +69,14 @@ public class MapValidator extends Validator {
             if (inputString.charAt(0) != 'S') {
                 return false;
             }
-            tile = new Tile(inputString.charAt(0), new Position(1, 0), inputString.charAt(1), null);
+            tile = new Tile(inputString.charAt(0), new Point(1, 0), inputString.charAt(1), null);
         } else {
             // end tile
             if (inputString.charAt(0) == 'E') {
-                tile = new Tile(inputString.charAt(0), getPresentgetPosition(), null, null);
+                tile = new Tile(inputString.charAt(0), getPresentgetPoint(), null, null);
             } else {
                 // other tiles
-                tile = new Tile(inputString.charAt(0), getPresentgetPosition(), inputString.charAt(2), inputString.charAt(1));
+                tile = new Tile(inputString.charAt(0), getPresentgetPoint(), inputString.charAt(2), inputString.charAt(1));
 
                 // check if tile direction is valid
                 if (!checkDirectionAvailable(inputString.charAt(1))) {
@@ -91,7 +91,7 @@ public class MapValidator extends Validator {
         }
 
         // set max and min of x, y
-        setMaxAndMinOfXY(tile.getPosition());
+        setMaxAndMinOfXY(tile.getPoint());
 
         // add the tile in tile list
         bridgeMap.getMapTileList().add(tile);
@@ -100,33 +100,33 @@ public class MapValidator extends Validator {
     }
 
     // check if the max or min of x, y is changed
-    private void setMaxAndMinOfXY(Position position) {
-        if (position.x() > maxX) {
-            maxX = position.x();
-        } else if (position.x() < minX) {
-            minX = position.x();
+    private void setMaxAndMinOfXY(Point point) {
+        if (point.x > maxX) {
+            maxX = point.x;
+        } else if (point.x < minX) {
+            minX = point.x;
         }
 
-        if (position.y() > maxY) {
-            maxY = position.y();
-        } else if (position.y() < minY) {
-            minY = position.y();
+        if (point.y > maxY) {
+            maxY = point.y;
+        } else if (point.y < minY) {
+            minY = point.y;
         }
     }
 
-    // get the position of present tile
-    private Position getPresentgetPosition() {
-        int previousX = bridgeMap.getMapTileList().getLast().getPosition().x();
-        int previousY = bridgeMap.getMapTileList().getLast().getPosition().y();
+    // get the point of present tile
+    private Point getPresentgetPoint() {
+        int previousX = bridgeMap.getMapTileList().getLast().getPoint().x;
+        int previousY = bridgeMap.getMapTileList().getLast().getPoint().y;
 
         if (bridgeMap.getMapTileList().getLast().getNextDirection() == 'U') {
-            return new Position(previousX, previousY - 1);
+            return new Point(previousX, previousY - 1);
         } else if (bridgeMap.getMapTileList().getLast().getNextDirection() == 'D') {
-            return new Position(previousX, previousY + 1);
+            return new Point(previousX, previousY + 1);
         } else if (bridgeMap.getMapTileList().getLast().getNextDirection() == 'R') {
-            return new Position(previousX + 1, previousY);
+            return new Point(previousX + 1, previousY);
         } else {
-            return new Position(previousX - 1, previousY);
+            return new Point(previousX - 1, previousY);
         }
     }
 
@@ -172,18 +172,18 @@ public class MapValidator extends Validator {
             // flag for checking bridge validity
             boolean flag = false;
             for (int i = bridgeMap.getMapTileList().size() - 1; i >= 0; i--) {
-                if (bridgeMap.getMapTileList().get(i).getTileName() == 'B' && bridgeMap.getMapTileList().get(i).getPosition().x() == tile.getPosition().x() - 2) {
+                if (bridgeMap.getMapTileList().get(i).getTileName() == 'B' && bridgeMap.getMapTileList().get(i).getPoint().x == tile.getPoint().x - 2) {
                     flag = true;
                 }
 
-                if (bridgeMap.getMapTileList().get(i).getPosition().equals(tile.getPosition())) {
+                if (bridgeMap.getMapTileList().get(i).getPoint().equals(tile.getPoint())) {
                     return false;
                 }
             }
             return flag;
         } else {
             for (int i = bridgeMap.getMapTileList().size() - 1; i >= 0; i--) {
-                if (bridgeMap.getMapTileList().get(i).getPosition().equals(tile.getPosition())) {
+                if (bridgeMap.getMapTileList().get(i).getPoint().equals(tile.getPoint())) {
                     return false;
                 }
             }

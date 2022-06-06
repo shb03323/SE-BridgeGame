@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.*;
 import java.util.LinkedList;
 
 public class BridgeMap {
@@ -35,9 +36,9 @@ public class BridgeMap {
         this.width = width + 1;
     }
 
-    public int getTileIndexByPosition(Position position) {
+    public int getTileIndexByPoint(Point point) {
         for (int i = 0; i < mapTileList.size(); i++) {
-            if (mapTileList.get(i).getPosition().equals(position)) {
+            if (mapTileList.get(i).getPoint().equals(point)) {
                 return i;
             }
         }

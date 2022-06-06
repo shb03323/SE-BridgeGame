@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="&quot;[FEAT] add Players in PlayerScoreBoard&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/MapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/BridgeMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/model/BridgeMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/model/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/validator/MapValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/validator/MapValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BridgeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BridgeMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validator/MapValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/validator/MapValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/validator/PlayerInputValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/validator/PlayerInputValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +54,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -90,7 +104,8 @@
       <workItem from="1654145964595" duration="6067000" />
       <workItem from="1654228372890" duration="16000" />
       <workItem from="1654414562301" duration="21752000" />
-      <workItem from="1654499229678" duration="10429000" />
+      <workItem from="1654499229678" duration="11785000" />
+      <workItem from="1654519931737" duration="4810000" />
     </task>
     <servers />
   </component>
@@ -115,5 +130,9 @@
     <MESSAGE value="[FEAT] add Players in PlayerScoreBoard" />
     <MESSAGE value="&quot;[FEAT] add Players in PlayerScoreBoard&quot;" />
     <option name="LAST_COMMIT_MESSAGE" value="&quot;[FEAT] add Players in PlayerScoreBoard&quot;" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

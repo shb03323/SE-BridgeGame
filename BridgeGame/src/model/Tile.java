@@ -1,14 +1,16 @@
 package model;
 
+import java.awt.*;
+
 public class Tile {
     private final char tileName;
-    private Position position;
+    private Point point;
     private Character nextDirection;
     private Character previousDirection;
 
-    public Tile(char tileName, Position position, Character nextDirection, Character previousDirection) {
+    public Tile(char tileName, Point point, Character nextDirection, Character previousDirection) {
         this.tileName = tileName;
-        this.position = position;
+        this.point = point;
         this.nextDirection = nextDirection;
         this.previousDirection = previousDirection;
     }
@@ -17,12 +19,12 @@ public class Tile {
         return tileName;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    public void setPoint(Point point) {
+        this.point = point;
     }
 
-    public Position getPosition() {
-        return position;
+    public Point getPoint() {
+        return point;
     }
 
     public Character getNextDirection() {
@@ -30,4 +32,5 @@ public class Tile {
     }
 
     public Character getPreviousDirection() { return previousDirection; }
+
 }

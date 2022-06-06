@@ -1,8 +1,9 @@
 package validator;
 
 import model.BridgeMap;
-import model.Position;
 import model.Tile;
+
+import java.awt.*;
 
 public class PlayerInputValidator extends Validator{
     // input of user
@@ -70,10 +71,10 @@ public class PlayerInputValidator extends Validator{
             } else {
                 // allow going right when player is on 'B' tile
                 if (tile.getTileName() == 'B' && input.charAt(i) == 'R') {
-                    tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() + 2, tile.getPosition().y()));
+                    tileIndex = bridgeMap.getTileIndexByPoint(new Point(tile.getPoint().x + 2, tile.getPoint().y));
                     addedBridgeCardNum++;
                 } else if (tile.getTileName() == 'b' && input.charAt(i) == 'L') {
-                    tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() - 2, tile.getPosition().y()));
+                    tileIndex = bridgeMap.getTileIndexByPoint(new Point(tile.getPoint().x - 2, tile.getPoint().y));
                     addedBridgeCardNum++;
                 } else {
                     return false;
