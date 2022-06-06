@@ -9,6 +9,7 @@ public class InputPanel extends JPanel {
     public JButton rollButton = new JButton("Roll");
     public JButton stayButton = new JButton("Stay");
 
+    // input panel for player take turn
     public InputPanel() {
         this.setBounds(800, 800, 200, 100);
         this.setLayout(new GridLayout(3, 1));

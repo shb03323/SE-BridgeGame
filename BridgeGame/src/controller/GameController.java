@@ -19,10 +19,13 @@ public class GameController implements ActionListener {
     // rank of player
     private int rank = 1;
 
+    // init game
     public void initGame() throws Exception {
+        // init map
         mapController = new MapController();
         mapController.initMap();
 
+        // init player
         playerController = new PlayerController();
         playerController.initPlayers();
         playerController.getInputPanel().setButtonListener(this);
@@ -30,9 +33,11 @@ public class GameController implements ActionListener {
         // set players in start cell
         mapController.initCharacter(playerController.getPlayerList().getPlayerListSize());
 
+        // show GUI
         gameView = new MainFrame(playerController, mapController);
     }
 
+    // add score when player get card
     private void addScore(int playerIndex, int tileIndex) {
         int score;
         char tileName = mapController.getMap().getMapTileList().get(tileIndex).getTileName();
@@ -47,17 +52,20 @@ public class GameController implements ActionListener {
         playerController.getScoreBoardPanel().setScore(playerIndex, score);
     }
 
+    // add bridge card number in player model
     private void addBridgeCardNum(int playerIndex, int num) {
         playerController.getPlayerList().getPlayer(playerIndex).obtainBridgeCard(num);
         playerController.getScoreBoardPanel().setBridgeCardNum(playerIndex, playerController.getPlayerList().getPlayer(playerIndex).getBridgeCardNum());
     }
 
+    // player use bridge card
     private void useBridgeCard(int playerIndex) {
         playerController.getPlayerList().getPlayer(playerIndex).useBridgeCard();
         int bridgeCardNum = playerController.getPlayerList().getPlayer(playerIndex).getBridgeCardNum();
         playerController.getScoreBoardPanel().setBridgeCardNum(playerIndex, bridgeCardNum);
     }
 
+    // get the score according to the current ranking
     private int getRankScore() {
         int score;
         switch (rank) {
@@ -69,6 +77,7 @@ public class GameController implements ActionListener {
         return score;
     }
 
+    // when player get to end point, finished that player
     private void finishPlayer() {
         if (playerController.getPlayerList().getPlayer(turnNow).getCellNow() == mapController.getMap().getMapTileList().size() - 1) {
             playerController.getPlayerList().getPlayer(turnNow).addScore(getRankScore());
@@ -77,6 +86,7 @@ public class GameController implements ActionListener {
         }
     }
 
+    // give turn to next player
     private void changeTurn() {
         do {
             turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();

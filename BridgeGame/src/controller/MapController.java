@@ -24,12 +24,14 @@ public class MapController {
     // block size
     private int blockSize = 40;
 
+    // init map
     public void initMap() throws Exception {
         // maps in the map directory
         String currentWorkingDirectory = System.getProperty("user.dir");
         File dir = new File(currentWorkingDirectory + "/src/assets/map/");
         String[] mapNames = dir.list();
 
+        // shows a dialog to help user select a map
         String mapName = (String) JOptionPane.showInputDialog(null, "Choose the map", null, JOptionPane.PLAIN_MESSAGE, null, mapNames, "default.map");
         bridgeMap = new BridgeMap();
 
@@ -40,8 +42,9 @@ public class MapController {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
         assert fReader != null;
+
+        // check map is validate
         MapValidator mapValidator = new MapValidator(new BufferedReader(fReader), bridgeMap);
         if (mapValidator.validate()) {
             bridgeMap = mapValidator.getValidatedMap();
@@ -50,6 +53,7 @@ public class MapController {
             System.exit(0);
         }
 
+        // finished validation, so draw it
         drawMap();
     }
 
@@ -111,6 +115,7 @@ public class MapController {
         return panel;
     }
 
+    // init character icon in the map GUI
     public void initCharacter(int playerNum) {
         for (int i = 0; i < playerNum; i++) {
             JPanel panel = new JPanel();
@@ -123,6 +128,7 @@ public class MapController {
         }
     }
 
+    // move character icon in the map
     public void setCharacter(int i, int playerIndex) {
         JPanel panel = (JPanel) mapView.getComponent(playerIndex);
         Tile tile = bridgeMap.getMapTileList().get(i);

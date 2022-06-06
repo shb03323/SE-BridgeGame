@@ -46,6 +46,7 @@ public class PlayerScoreBoardPanel extends JPanel {
         return nameLabel;
     }
 
+    // init player icon
     private JLabel initPlayerIconLabel(int i) {
         String currentWorkingDirectory = System.getProperty("user.dir");
         ImageIcon imageIcon = new ImageIcon(currentWorkingDirectory + "/src/assets/tile/Player" + (i + 1) + ".PNG");
@@ -53,12 +54,14 @@ public class PlayerScoreBoardPanel extends JPanel {
         return new JLabel(imageIcon);
     }
 
+    // init player score label
     private JLabel initPlayerScoreLabel(int i) {
         JLabel scoreLabel = playerScoreList.get(i);
         scoreLabel.setHorizontalAlignment(JLabel.CENTER);
         return scoreLabel;
     }
 
+    // init bridge card number label
     private JLabel initBridgeCard(int i) {
         JLabel bridgeNumberLabel = bridgeCardList.get(i);
         bridgeNumberLabel.setHorizontalAlignment(JLabel.CENTER);

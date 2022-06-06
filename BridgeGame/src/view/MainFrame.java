@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
+    // main frame
     public MainFrame(PlayerController playerController, MapController mapController) {
         setTitle("Bridge Game");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,6 +22,7 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
+    // init score board, map, player input panel
     private void initPanel(PlayerController playerController, MapController mapController) {
         Container container = this.getContentPane();
 

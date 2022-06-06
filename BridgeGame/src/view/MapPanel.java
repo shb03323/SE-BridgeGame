@@ -7,6 +7,8 @@ import javax.swing.*;
 
 public class MapPanel extends JPanel {
     public JPanel[] cells;
+
+    // panel for map
     public MapPanel(int width, int height, int size) {
         this.setBounds(150, 100, (width + 3) * 40, (height + 3) * 40);
         Util.changePanelWithBorder(this);

@@ -8,6 +8,7 @@ import java.util.*;
 import java.util.List;
 
 public class RankDialog extends JDialog {
+    // show rank dialog when game becomes end
     public RankDialog(PlayerList playerList) {
         setLayout(new GridLayout(playerList.getPlayerListSize() + 1, 1));
         setSize(500, 500);
@@ -19,9 +20,11 @@ public class RankDialog extends JDialog {
             map.put(playerList.getPlayer(i).getName(), playerList.getPlayer(i).getScore());
         }
 
+        // sorted map by score
         List<String> keySet = new ArrayList<>(map.keySet());
         keySet.sort((o1, o2) -> map.get(o2) - map.get(o1));
 
+        // set score label
         for (String key : keySet) {
             this.add(new JLabel(key + "'s Score : " + map.get(key)));
         }
@@ -29,6 +32,7 @@ public class RankDialog extends JDialog {
         // add exit button
         JButton btn = new JButton("EXIT");
 
+        // when user click exit button, system will be terminate
         btn.addActionListener(e -> System.exit(0));
 
         this.add(btn);
