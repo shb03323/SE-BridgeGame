@@ -1,11 +1,9 @@
 package view;
 
 import controller.MapController;
-import model.player.Player;
 import view.utils.Util;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class MapPanel extends JPanel {
     public JPanel[] cells;
