@@ -43,7 +43,7 @@ public class MapValidator extends Validator {
         bridgeMap.setHeight(maxY - minY);
 
         for (Tile tile : bridgeMap.getMapTileList()) {
-            tile.setPosition(new Position(tile.getPosition().x() - minX, tile.getPosition().y() - minY));
+            tile.setPosition(new Position(tile.getPosition().x() - minX + 1, tile.getPosition().y() - minY + 1));
         }
         return true;
     }

@@ -54,6 +54,12 @@ public class PlayerInputValidator extends Validator{
         int tempBridgeCardNum = bridgeCardNum;
         while (i < diceNumber - bridgeCardNum) {
             Tile tile = bridgeMap.getMapTileList().get(tileIndex);
+
+            // when player get to end
+            if (tile.getTileName() == 'E') {
+                break;
+            }
+
             // check tile's next direction or previous direction and input is matching
             if (tile.getNextDirection() == input.charAt(i)) {
                 tileIndex++;

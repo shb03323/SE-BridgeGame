@@ -10,6 +10,7 @@ import view.utils.Util;
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
@@ -24,14 +25,18 @@ public class MapController {
     private int blockSize = 40;
 
     public void initMap() throws Exception {
-        // FIXME : you can change the map in here.
-        bridgeMap = new BridgeMap("default.map");
+        // maps in the map directory
         String currentWorkingDirectory = System.getProperty("user.dir");
+        File dir = new File(currentWorkingDirectory + "/src/assets/map/");
+        String[] mapNames = dir.list();
+
+        String mapName = (String) JOptionPane.showInputDialog(null, "Choose the map", null, JOptionPane.PLAIN_MESSAGE, null, mapNames, "default.map");
+        bridgeMap = new BridgeMap(mapName);
 
         // load map
         FileReader fReader = null;
         try {
-            fReader = new FileReader(currentWorkingDirectory + "/src/assets/map/" + bridgeMap.getMapName());
+            fReader = new FileReader(currentWorkingDirectory + "/src/assets/map/" + mapName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

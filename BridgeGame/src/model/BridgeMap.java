@@ -17,10 +17,6 @@ public class BridgeMap {
         this.mapName = mapName;
     }
 
-    public String getMapName() {
-        return mapName;
-    }
-
     public LinkedList<Tile> getMapTileList() { return mapTileList; }
 
     public int getHeight() {
@@ -32,11 +28,11 @@ public class BridgeMap {
     }
 
     public void setHeight(int height) {
-        this.height = height;
+        this.height = height + 1;
     }
 
     public void setWidth(int width) {
-        this.width = width;
+        this.width = width + 1;
     }
 
     public int getTileIndexByPosition(Position position) {

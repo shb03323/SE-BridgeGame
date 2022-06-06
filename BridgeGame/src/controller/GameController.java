@@ -1,6 +1,5 @@
 package controller;
 
-import model.Tile;
 import validator.PlayerCanStayValidator;
 import validator.PlayerInputValidator;
 import view.MainFrame;
@@ -16,6 +15,8 @@ public class GameController implements ActionListener {
 
     // index of the player with the current turn
     private int turnNow;
+    // rank of player
+    private int rank = 1;
 
     public void initGame() throws Exception {
         mapController = new MapController();
@@ -56,6 +57,38 @@ public class GameController implements ActionListener {
         playerController.getScoreBoardPanel().setBridgeCardNum(playerIndex, bridgeCardNum);
     }
 
+    private int getRankScore() {
+        int score;
+        switch (rank) {
+            case 1 -> score = 7;
+            case 2 -> score = 3;
+            case 3 -> score = 1;
+            default -> score = 0;
+        }
+        return score;
+    }
+
+    private void finishPlayer() {
+        if (playerController.getPlayerList().getPlayer(turnNow).getCellNow() == mapController.getMap().getMapTileList().size() - 1) {
+            addScore(turnNow, getRankScore());
+            playerController.getPlayerList().getPlayer(turnNow).setStatus(false);
+            rank++;
+        }
+    }
+
+    private void changeTurn() {
+        while (true) {
+            turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
+            if (playerController.getPlayerList().getPlayer(turnNow).getStatus()) {
+                break;
+            }
+        }
+        if (playerController.getPlayerList().getPlayerListSize() == rank) {
+            JOptionPane.showMessageDialog(null, "hello");
+            System.exit(0);
+        }
+    }
+
     /**
      * Roll : show input text field and player can input the string in it.
      * Stay : player can stay and finish turn.
@@ -77,8 +110,10 @@ public class GameController implements ActionListener {
                         mapController.setCharacter(playerInputValidator.getTileIndex(), turnNow);
                         addScore(turnNow, playerInputValidator.getTileIndex());
                         addBridgeCardNum(turnNow, playerInputValidator.getBridgeCardNum());
-                        // finish turn
-                        turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
+                        // finish player
+                        finishPlayer();
+                        // change turn
+                        changeTurn();
                         // change the text of remark label
                         playerController.getInputPanel().setPlayerName(playerController.getPlayerList().getPlayer(turnNow).getName());
                         break;
