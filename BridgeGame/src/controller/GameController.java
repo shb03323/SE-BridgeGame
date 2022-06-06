@@ -3,6 +3,7 @@ package controller;
 import validator.PlayerCanStayValidator;
 import validator.PlayerInputValidator;
 import view.MainFrame;
+import view.RankDialog;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -70,22 +71,18 @@ public class GameController implements ActionListener {
 
     private void finishPlayer() {
         if (playerController.getPlayerList().getPlayer(turnNow).getCellNow() == mapController.getMap().getMapTileList().size() - 1) {
-            addScore(turnNow, getRankScore());
+            playerController.getPlayerList().getPlayer(turnNow).addScore(getRankScore());
             playerController.getPlayerList().getPlayer(turnNow).setStatus(false);
             rank++;
         }
     }
 
     private void changeTurn() {
-        while (true) {
+        do {
             turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
-            if (playerController.getPlayerList().getPlayer(turnNow).getStatus()) {
-                break;
-            }
-        }
+        } while (!playerController.getPlayerList().getPlayer(turnNow).getStatus());
         if (playerController.getPlayerList().getPlayerListSize() == rank) {
-            JOptionPane.showMessageDialog(null, "hello");
-            System.exit(0);
+            new RankDialog(playerController.getPlayerList());
         }
     }
 
