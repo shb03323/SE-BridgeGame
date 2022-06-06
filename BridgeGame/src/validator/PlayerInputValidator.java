@@ -51,6 +51,7 @@ public class PlayerInputValidator extends Validator{
     // check the player input right direction.
     private boolean checkDirection() {
         int i = 0;
+        int tempBridgeCardNum = bridgeCardNum;
         while (i < diceNumber - bridgeCardNum) {
             Tile tile = bridgeMap.getMapTileList().get(tileIndex);
             // check tile's next direction or previous direction and input is matching
@@ -62,16 +63,17 @@ public class PlayerInputValidator extends Validator{
                 // allow going right when player is on 'B' tile
                 if (tile.getTileName() == 'B' && input.charAt(i) == 'R') {
                     tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() + 2, tile.getPosition().y()));
-                    bridgeCardNum++;
+                    tempBridgeCardNum++;
                 } else if (tile.getTileName() == 'b' && input.charAt(i) == 'L') {
                     tileIndex = bridgeMap.getTileIndexByPosition(new Position(tile.getPosition().x() - 2, tile.getPosition().y()));
-                    bridgeCardNum++;
+                    tempBridgeCardNum++;
                 } else {
                     return false;
                 }
             }
             i++;
         }
+        bridgeCardNum = tempBridgeCardNum;
         return true;
     }
 }
