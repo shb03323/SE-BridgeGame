@@ -1,7 +1,7 @@
 package validator;
 
-import model.BridgeMap;
-import model.Tile;
+import model.map.BridgeMap;
+import model.map.Tile;
 
 import java.awt.*;
 

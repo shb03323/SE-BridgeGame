@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71bc9104-a655-4f68-8046-a0675dcd1c36" name="Changes" comment="&quot;[FEAT] add Players in PlayerScoreBoard&quot;">
-      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/player/PlayerList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/player/PlayerList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImageLabel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImageLabel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/InputPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/InputPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BridgeGame.png" beforeDir="false" afterPath="$PROJECT_DIR$/../BridgeGame.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/controller/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/controller/MapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/model/BridgeMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/model/BridgeMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/validator/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/validator/Validator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BridgeGame/view/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BridgeGame/view/MainFrame.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +100,9 @@
       <workItem from="1654228372890" duration="16000" />
       <workItem from="1654414562301" duration="21752000" />
       <workItem from="1654499229678" duration="11785000" />
-      <workItem from="1654519931737" duration="5830000" />
+      <workItem from="1654519931737" duration="6212000" />
+      <workItem from="1654533214620" duration="2997000" />
+      <workItem from="1654591246275" duration="4867000" />
     </task>
     <servers />
   </component>

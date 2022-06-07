@@ -1,7 +1,7 @@
 package controller;
 
-import model.BridgeMap;
-import model.Tile;
+import model.map.BridgeMap;
+import model.map.Tile;
 import validator.MapValidator;
 import view.ImageLabel;
 import view.MapPanel;
