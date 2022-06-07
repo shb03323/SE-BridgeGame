@@ -49,7 +49,7 @@ public class GameController implements ActionListener {
         }
 
         playerController.getPlayerList().getPlayer(playerIndex).addScore(score);
-        b
+
         int totalScore = playerController.getPlayerList().getPlayer(playerIndex).getScore();
         playerController.getScoreBoardPanel().setScore(playerIndex, totalScore);
     }
