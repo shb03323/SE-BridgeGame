@@ -49,7 +49,9 @@ public class GameController implements ActionListener {
         }
 
         playerController.getPlayerList().getPlayer(playerIndex).addScore(score);
-        playerController.getScoreBoardPanel().setScore(playerIndex, score);
+        b
+        int totalScore = playerController.getPlayerList().getPlayer(playerIndex).getScore();
+        playerController.getScoreBoardPanel().setScore(playerIndex, totalScore);
     }
 
     // add bridge card number in player model
