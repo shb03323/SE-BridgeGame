@@ -24,8 +24,9 @@ public class GameController implements ActionListener {
     // init game
     public void initGame() throws Exception {
         // init map
-        mapController = new MapController();
         setMapName();
+        mapController = new MapController();
+        System.out.println(mapName);
         mapController.initMap(mapName);
 
         // init player
@@ -117,6 +118,7 @@ public class GameController implements ActionListener {
 
     private void startNewGame() throws Exception {
         gameView.dispose();
+        rank = 1;
         initGame();
     }
 
