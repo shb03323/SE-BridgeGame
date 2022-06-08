@@ -21,18 +21,24 @@ public class MapController {
     // map view
     private MapPanel mapView;
 
+    // map file name
+    private String mapName;
+
     // block size
     private int blockSize = 40;
 
     // init map
-    public void initMap() throws Exception {
+    public void initMap(String previousMap) throws Exception {
         // maps in the map directory
         String currentWorkingDirectory = System.getProperty("user.dir");
         File dir = new File(currentWorkingDirectory + "/src/assets/map/");
         String[] mapNames = dir.list();
 
-        // shows a dialog to help user select a map
-        String mapName = (String) JOptionPane.showInputDialog(null, "Choose the map", null, JOptionPane.PLAIN_MESSAGE, null, mapNames, "default.map");
+        /**
+         * shows a dialog to help user select a map
+         * when game is restart, choose the map that used in previous game
+         */
+        mapName = (String) JOptionPane.showInputDialog(null, "Choose the map", null, JOptionPane.PLAIN_MESSAGE, null, mapNames, previousMap);
         bridgeMap = new BridgeMap();
 
         // load map
@@ -63,6 +69,10 @@ public class MapController {
 
     public MapPanel getPanel() {
         return mapView;
+    }
+
+    public String getMapName() {
+        return mapName;
     }
 
     private void drawMap() {

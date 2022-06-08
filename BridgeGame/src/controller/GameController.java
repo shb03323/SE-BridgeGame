@@ -18,12 +18,15 @@ public class GameController implements ActionListener {
     private int turnNow;
     // rank of player
     private int rank = 1;
+    // map name of previous
+    private String mapName = null;
 
     // init game
     public void initGame() throws Exception {
         // init map
         mapController = new MapController();
-        mapController.initMap();
+        setMapName();
+        mapController.initMap(mapName);
 
         // init player
         playerController = new PlayerController();
@@ -89,13 +92,42 @@ public class GameController implements ActionListener {
     }
 
     // give turn to next player
-    private void changeTurn() {
+    private void changeTurn() throws Exception {
         do {
             turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
         } while (!playerController.getPlayerList().getPlayer(turnNow).getStatus());
         if (playerController.getPlayerList().getPlayerListSize() == rank) {
-            new RankDialog(playerController.getPlayerList());
+            RankDialog rankDialog = new RankDialog(playerController.getPlayerList());
+            rankDialog.doLayout();
+
+            // go to main frame when user click New Game
+            rankDialog.newGameBtn.addActionListener(e -> {
+                rankDialog.dispose();
+                try {
+                    startNewGame();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            });
+
+            // when user click exit button, system will terminate
+            rankDialog.exitBtn.addActionListener(e -> System.exit(0));
         }
+    }
+
+    private void startNewGame() throws Exception {
+        gameView.dispose();
+        initGame();
+    }
+
+    // get map name of previous game
+    private void setMapName() {
+        if (mapName == null) {
+            mapName = "default.map";
+        } else {
+            mapName = mapController.getMapName();
+        }
+
     }
 
     /**
