@@ -171,7 +171,9 @@ public class GameController implements ActionListener {
                     // use bridge card
                     useBridgeCard(turnNow);
                     // finish turn
-                    turnNow = (turnNow + 1) % playerController.getPlayerList().getPlayerListSize();
+                    finishPlayer();
+                    // change turn
+                    changeTurn();
                     // change the text of remark label
                     playerController.getInputPanel().setPlayerName(playerController.getPlayerList().getPlayer(turnNow).getName());
                 } else {
